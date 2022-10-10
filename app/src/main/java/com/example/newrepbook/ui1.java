@@ -14,13 +14,23 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
@@ -53,6 +63,13 @@ public class ui1 extends AppCompatActivity {
     Context mContext;
     NidOAuthLogin callDeleteTokenApi;
 
+    private FirebaseAuth mAuth;
+
+    private GoogleApiClient mGoogleApiClient;
+
+    // Initialize Firebase Auth
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +90,8 @@ public class ui1 extends AppCompatActivity {
         ll_naver_login = findViewById(R.id.ll_naver_login);
         btn_logout = findViewById(R.id.btn_logout);
 
+        mAuth = FirebaseAuth.getInstance();
+
         Button loginBtn = (Button) findViewById(R.id.loginBtn);//일반
 
         // 앱에 필요한 사용자 데이터를 요청하도록 로그인 옵션을 설정한다.
@@ -80,6 +99,7 @@ public class ui1 extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail() // email addresses도 요청함
                 .build();
+
 
         // 위에서 만든 GoogleSignInOptions을 사용해 GoogleSignInClient 객체를 만듬
         mGoogleSignInClient = GoogleSignIn.getClient(ui1.this, gso);
@@ -123,7 +143,6 @@ public class ui1 extends AppCompatActivity {
                 OAuthLoginCallback mOAuthLoginCallback = new OAuthLoginCallback() {
                     @Override
                     public void onSuccess() {
-
 
                     }
 
@@ -207,7 +226,7 @@ public class ui1 extends AppCompatActivity {
                 });
             }
         });
-        updateKakaoLoginUi();
+//        updateKakaoLoginUi();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -280,6 +299,8 @@ public class ui1 extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
+
     }
+
 }
 

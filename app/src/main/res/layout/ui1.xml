@@ -9,7 +9,7 @@
     android:background="#98E3EA">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titletextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
@@ -30,8 +30,8 @@
         android:text="-초보자들을 위한 레시피 북-"
         android:textColor="#000000"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/titletextView"
+        app:layout_constraintTop_toTopOf="@+id/titletextView" />
 
     <ImageView
         android:id="@+id/login"

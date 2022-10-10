@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".loginActivity"
+            android:name=".listMainActivity"
             android:exported="true"
             android:usesCleartextTraffic="true">
             <intent-filter>
@@ -42,12 +42,13 @@
 
         <activity android:name=".situation"></activity>
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".ui1"></activity>
+        <activity android:name=".loginActivity"></activity>
         <activity android:name=".joinActivity"></activity>
         <activity android:name=".PasswordResetActivity"></activity>
         <activity android:name=".CameraActivity"></activity>
         <activity android:name=".GalleryActivity"></activity>
-
+        <activity android:name=".AddPostActivity"></activity>
+        <activity android:name=".ui1"></activity>
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">

@@ -5,14 +5,13 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,10 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,6 +43,7 @@ public class joinActivity extends AppCompatActivity {
     private ImageView profileImageView;
     private FirebaseAuth mAuth;
     private String profilePath;
+    private RelativeLayout loading;
     EditText mnick, mphon;
 
 
@@ -54,11 +53,12 @@ public class joinActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        loading = findViewById(R.id.loading);
         profileImageView = findViewById(R.id.join_image);
         profileImageView.setOnClickListener(onClickListener);
         findViewById(R.id.btn_register).setOnClickListener(onClickListener);
-        findViewById(R.id.picture_btn).setOnClickListener(onClickListener);
-        findViewById(R.id.gallery_btn).setOnClickListener(onClickListener);
+        findViewById(R.id.imageModify).setOnClickListener(onClickListener);
+        findViewById(R.id.videoModify).setOnClickListener(onClickListener);
     }
 
     public void onStart() {
@@ -80,9 +80,7 @@ public class joinActivity extends AppCompatActivity {
           case 0 :
               if (resultCode == Activity.RESULT_OK) {
                   profilePath = data.getStringExtra("profilePath");
-                  Log.e("로그: ", "profilePath" + profilePath);
-                  Bitmap bmp = BitmapFactory.decodeFile(profilePath);
-                  profileImageView.setImageBitmap(bmp);
+                  Glide.with(this).load(profilePath).centerCrop().override(500).into(profileImageView);
               }
               break;
         }
@@ -93,51 +91,22 @@ public class joinActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch(v.getId()){
                 case R.id.btn_register: // 회원가입 버튼을 누르면
-                    signUp();
+                    RealtimeDatabaseUpload();
                     break;
-                case R.id.btn_login:
-                    startActivity(loginActivity.class); // 회원가입 페이지의 로그인 버튼을 누르면
+                case R.id.btn_login: // 회원가입 페이지의 로그인 버튼을 누르면
+                    startActivity(loginActivity.class);
                     break;
-                case R.id.picture_btn:
-                    startActivity(CameraActivity.class); // 카메라 버튼
+                case R.id.imageModify: // 카메라 버튼
+                    startActivity(CameraActivity.class);
                     break;
-                case R.id.gallery_btn:
-                    if(ContextCompat.checkSelfPermission(joinActivity.this,
-                        Manifest.permission.READ_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(joinActivity.this,
-                                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
-
-                        if(ActivityCompat.shouldShowRequestPermissionRationale(joinActivity.this,
-                                Manifest.permission.READ_EXTERNAL_STORAGE)){
-
-                        }else {
-
-                            startToast("권한을 허용해주세요.");
-
-                        }
-                    }else {
-                        startActivity(GalleryActivity.class); // 갤러리 버튼
-                    }
+                case R.id.videoModify:
+                    startActivity(GalleryActivity.class); // 갤러리 버튼
                     break;
             }
         }
     };
 
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case 1: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    startActivity(GalleryActivity.class); // 갤러리 버튼
-                } else {
-                    startToast("권한을 허용해주세요.");
-                }
-            }
-        }
-    }
-
-    private void signUp() {
+    private void RealtimeDatabaseUpload() {
         String email = ((EditText) findViewById(R.id.email)).getText().toString();
         String password = ((EditText) findViewById(R.id.password)).getText().toString();
         String passwordCheck = ((EditText) findViewById(R.id.password2)).getText().toString();
@@ -145,6 +114,7 @@ public class joinActivity extends AppCompatActivity {
         mphon = findViewById(R.id.phon);
 
         if(email.length()>0 && password.length()>0 && passwordCheck.length()>0) {
+            loading.setVisibility(View.VISIBLE);
             FirebaseStorage storage = FirebaseStorage.getInstance();
             final StorageReference storageRef = storage.getReference();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -204,6 +174,7 @@ public class joinActivity extends AppCompatActivity {
                                                         //가입이 이루어져을시 가입 화면을 빠져나감.
                                                         Intent intent = new Intent(joinActivity.this, loginActivity.class);
                                                         startActivity(intent);
+                                                        loading.setVisibility(View.GONE);
                                                         finish();
                                                         Toast.makeText(joinActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
                                                         startToast("회원가입을 성공했습니다.");
@@ -254,4 +225,5 @@ public class joinActivity extends AppCompatActivity {
         Intent intent = new Intent(this, c);
         startActivityForResult(intent, 0);
     }
+
 }

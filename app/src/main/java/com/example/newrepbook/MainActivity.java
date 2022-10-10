@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.logout_btn).setOnClickListener(onClickListener);
         findViewById(R.id.bookmark_btn).setOnClickListener(onClickListener);
         findViewById(R.id.bookmark_cancel).setOnClickListener(onClickListener);
+        findViewById(R.id.floatingActionButton).setOnClickListener(onClickListener);
 
         pager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
         pager.setCurrentItem(0);
@@ -294,6 +296,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.bookmark_cancel: //즐겨찾기 UI 취소 누르면
                     bookmark_cancel();
                     break;
+                case R.id.floatingActionButton: //게시물 만들기 버튼
+                    startAddPostActivity();
+                    break;
             }
         }
     };
@@ -316,6 +321,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // 다시 로그인 페이지로 돌아가기
+    private void startAddPostActivity() {
+        Intent intent = new Intent(this, AddPostActivity.class);
+        startActivity(intent);
+    }
 
 
 

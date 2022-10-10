@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class loginActivity extends AppCompatActivity {
@@ -53,7 +58,7 @@ public class loginActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch(v.getId()){
-                case R.id.btn_login: // 회원가입 버튼을 누르면
+                case R.id.btn_login: // 로그인 버튼을 누르면
                     login();
                     break;
                 case R.id.resetBtn: // 비밀번호 재설정 버튼을 누르면
@@ -71,15 +76,18 @@ public class loginActivity extends AppCompatActivity {
         String password = ((EditText) findViewById(R.id.et_pass)).getText().toString();
 
         if(email.length()>0 && password.length()>0) {
+            final RelativeLayout loading = findViewById(R.id.loading);
+            loading.setVisibility(View.VISIBLE);
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     //로그인 성공시
+                                    loading.setVisibility(View.GONE);
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     startToast("로그인에 성공하였습니다.");
-                                    startActivity(CameraActivity.class);
+                                    startActivity(MainActivity.class);
                                     } else {
                                     if(task.getException() != null){
                                             startToast(task.getException().toString());
