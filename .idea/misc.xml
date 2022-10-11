@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Newrepbook/app/src/main/res/layout/activity_camera.xml" value="0.17962962962962964" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/activity_listview.xml" value="0.25" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/addpost.xml" value="0.25" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/find_id.xml" value="0.11574074074074074" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/find_pw.xml" value="0.16203703703703703" />
@@ -17,10 +18,12 @@
         <entry key="..\:/Newrepbook/app/src/main/res/layout/level.xml" value="0.1984375" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/loading.xml" value="0.2" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/login.xml" value="0.22" />
-        <entry key="..\:/Newrepbook/app/src/main/res/layout/main.xml" value="0.2" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/main.xml" value="0.38333333333333336" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/main_home.xml" value="0.33" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/main_home2.xml" value="0.10833333333333334" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/material.xml" value="0.25" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/practicelistviewactivity.xml" value="0.2212962962962963" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/practicemainactivity.xml" value="0.2212962962962963" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/rbtn_hansik.xml" value="0.21" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/recipe.xml" value="0.10833333333333334" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/reset_pw.xml" value="0.2" />
