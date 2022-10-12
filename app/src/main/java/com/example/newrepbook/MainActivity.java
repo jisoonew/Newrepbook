@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
         Button tab_Item7 = (Button) findViewById(R.id.tab_Item7);
 //        Button tab_Item8 = (Button) findViewById(R.id.tab_Item8);
 
-        findViewById(R.id.logout_btn).setOnClickListener(onClickListener);
+//        findViewById(R.id.logout_btn).setOnClickListener(onClickListener);
         findViewById(R.id.bookmark_btn).setOnClickListener(onClickListener);
         findViewById(R.id.bookmark_cancel).setOnClickListener(onClickListener);
-        findViewById(R.id.floatingActionButton).setOnClickListener(onClickListener);
+//        findViewById(R.id.floatingActionButton).setOnClickListener(onClickListener);
 
         pager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
         pager.setCurrentItem(0);
@@ -164,16 +164,16 @@ public class MainActivity extends AppCompatActivity {
 
         // 안좋아하는 음식 버튼 누른 후
 
-//        hate_food = findViewById(R.id.hate_food);
-//
-//        hate_food.bringToFront();  // 맨앞으로 보이기
-//
-//
-////        tranlateLeftAnim.setAnimationListener(animListener3);
-////        tranlateRightAnim.setAnimationListener(animListener3);
-//
-//        hate_btn = (Button) findViewById(R.id.hate_btn);
-//
+        LinearLayout hate_food = findViewById(R.id.hate_food);
+
+        hate_food.bringToFront();  // 맨앞으로 보이기
+
+
+//        tranlateLeftAnim.setAnimationListener(animListener3);
+//        tranlateRightAnim.setAnimationListener(animListener3);
+
+//        Button hate_btn = (Button) findViewById(R.id.hate_btn);
+
 //        hate_btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -184,100 +184,100 @@ public class MainActivity extends AppCompatActivity {
 
 // 메뉴 UI의 취소 버튼
 
-//        cancel2 = findViewById(R.id.cancel2);
-//
-//        cancel2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                    hate_food.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
-//            }
-//        });
+        ImageButton cancel2 = findViewById(R.id.cancel2);
+
+        cancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    hate_food.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
+            }
+        });
 
 
 //// 알레르기 버튼 누른 후
 //
-//        allergy = findViewById(R.id.allergy);
-//
-//        allergy.bringToFront();  // 맨앞으로 보이기
-//
-//        allergy_btn = (Button) findViewById(R.id.allergy_btn);
-//
-//        allergy_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                allergy.setVisibility(VISIBLE);
-//            }
-//        });
+        LinearLayout allergy = findViewById(R.id.allergy);
+
+        allergy.bringToFront();  // 맨앞으로 보이기
+
+        Button allergy_btn = (Button) findViewById(R.id.allergy_btn);
+
+        allergy_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                allergy.setVisibility(VISIBLE);
+            }
+        });
 //
 //
 //// 알레르기 UI의 취소 버튼
 //
-//        cancel3 = findViewById(R.id.cancel3);
-//
-//        cancel3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                allergy.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
-//
-//            }
-//        });
+        ImageButton cancel3 = findViewById(R.id.cancel3);
+
+        cancel3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                allergy.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
+
+            }
+        });
 
 
 // 요리 후기 버튼 누른 후
 //
-//        postscript = findViewById(R.id.postscript);
-//
-//        postscript.bringToFront();  // 맨앞으로 보이기
-//
-//        postscript_btn = (Button) findViewById(R.id.postscript_btn);
-//
-//        postscript_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                postscript.setVisibility(VISIBLE);
-//            }
-//        });
+        LinearLayout postscript = findViewById(R.id.postscript);
+
+        postscript.bringToFront();  // 맨앞으로 보이기
+
+        Button postscript_btn = (Button) findViewById(R.id.postscript_btn);
+
+        postscript_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postscript.setVisibility(VISIBLE);
+            }
+        });
 //
 
 // 요리 후기 UI의 취소 버튼
 
-//        postscript_cancel = findViewById(R.id.postscript_cancel);
-//
-//        postscript_cancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                postscript.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
-//
-//            }
-//        });
+        ImageButton postscript_cancel = findViewById(R.id.postscript_cancel);
+
+        postscript_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postscript.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
+
+            }
+        });
 
 //// 내가 본 레시피 버튼 누른 후
 //
-//        identify_food = findViewById(R.id.identify_food);
-//
-//        identify_food.bringToFront();  // 맨앞으로 보이기
-//
-//        identift_food_btn = (Button) findViewById(R.id.identify_food_btn);
-//
-//        identift_food_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                identify_food.setVisibility(VISIBLE);
-//            }
-//        });
+        LinearLayout identify_food = findViewById(R.id.identify_food);
+
+        identify_food.bringToFront();  // 맨앞으로 보이기
+
+        Button identift_food_btn = (Button) findViewById(R.id.identify_food_btn);
+
+        identift_food_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                identify_food.setVisibility(VISIBLE);
+            }
+        });
 //
 //
 //// 내가 본 레시피 UI의 취소 버튼
 //
-//        identify_food_cancel = findViewById(R.id.identify_food_cancel);
-//
-//        identify_food_cancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                identify_food.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
-//
-//            }
-//        });
+        ImageButton identify_food_cancel = findViewById(R.id.identify_food_cancel);
+
+        identify_food_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                identify_food.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
+
+            }
+        });
 
 
     }
@@ -289,16 +289,16 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.bookmark: //즐겨찾기를 누르면
                     bookmark_click();
                     break;
-                case R.id.logout_btn: //로그아웃을 누르면
-                    FirebaseAuth.getInstance().signOut();
-                    startMainActivity();
-                    break;
+//                case R.id.logout_btn: //로그아웃을 누르면
+//                    FirebaseAuth.getInstance().signOut();
+//                    startMainActivity();
+//                    break;
                 case R.id.bookmark_cancel: //즐겨찾기 UI 취소 누르면
                     bookmark_cancel();
                     break;
-                case R.id.floatingActionButton: //게시물 만들기 버튼
-                    startAddPostActivity();
-                    break;
+//                case R.id.floatingActionButton: //게시물 만들기 버튼
+//                    startAddPostActivity();
+//                    break;
             }
         }
     };

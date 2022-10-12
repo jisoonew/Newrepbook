@@ -1,7 +1,12 @@
 package com.example.newrepbook.practice;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,9 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class SampleMainActivity extends AppCompatActivity {
+public class SampleMainActivity extends AppCompatActivity implements memo_Adapter.OnItemClickListener {
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private memo_Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<memo_list> arrayList;
     private FirebaseDatabase database;
@@ -45,7 +50,9 @@ public class SampleMainActivity extends AppCompatActivity {
                 arrayList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     memo_list tv_memo_list = snapshot.getValue(memo_list.class);
+                    String str2 = dataSnapshot.child("name").getValue(String.class);
                     arrayList.add(tv_memo_list);
+
                 }
                 adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
             }
@@ -57,7 +64,19 @@ public class SampleMainActivity extends AppCompatActivity {
         });
 
         adapter = new memo_Adapter(arrayList, this);
+
+        adapter.OnItemClickListener(new memo_Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(SampleMainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
         recyclerView.setAdapter(adapter);
     }
 
+
+    @Override
+    public void onItemClick(View view, int position) {
+
+    }
 }

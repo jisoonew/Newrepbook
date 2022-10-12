@@ -7,15 +7,15 @@
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="95dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="330dp"
-        android:layout_marginTop="650dp"
-        android:layout_weight="1"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/floatingActionButton"-->
+<!--        android:layout_width="95dp"-->
+<!--        android:layout_height="85dp"-->
+<!--        android:layout_marginStart="330dp"-->
+<!--        android:layout_marginTop="650dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:clickable="true"-->
+<!--        app:srcCompat="@drawable/ic_baseline_add_24" />-->
 
     <FrameLayout
     android:id="@+id/first"
@@ -34,11 +34,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
-                <Button
-                    android:id="@+id/logout_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="로그아웃" />
+<!--                <Button-->
+<!--                    android:id="@+id/logout_btn"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="로그아웃" />-->
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="340dp"
@@ -113,7 +113,16 @@
                         android:layout_weight="1"
                         android:text="레시피" />
 
-                    <!--                    <Button-->
+                    <Button
+                        android:id="@+id/btn_third"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#00ff0000"
+                        android:text="랭킹"
+                        android:textColor="#000000" />
+
+<!--                                        <Button-->
 <!--                        android:id="@+id/btn_four"-->
 <!--                        android:layout_width="wrap_content"-->
 <!--                        android:layout_height="wrap_content"-->
@@ -130,14 +139,7 @@
                     android:layout_marginTop="0dp"
                     android:background="#000000" />
 
-                <Button
-                    android:id="@+id/btn_third"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#00ff0000"
-                    android:text="랭킹"
-                    android:textColor="#000000" />
+
 
                 <LinearLayout
                     android:id="@+id/ii1"
@@ -171,14 +173,14 @@
                         android:layout_weight="1"
                         android:text="재료" />
 
-<!--                    <Button-->
-<!--                        android:id="@+id/tab_Item8"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="#000000"-->
-<!--                        android:background="#00ff0000"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:text= "난이도" />-->
+                    <Button
+                        android:id="@+id/tab_Item8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:background="#00ff0000"
+                        android:layout_weight="1"
+                        android:text= "난이도" />
 
             </LinearLayout>
 
@@ -208,7 +210,6 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 
 
 
@@ -290,19 +291,19 @@
 
 <!--&lt;!&ndash;    나의 식습관 텍스트    &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:layout_marginLeft="-80dp"-->
-<!--            android:layout_marginTop="113dp"-->
-<!--            android:text="나의 식습관"/>-->
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-80dp"
+            android:layout_marginTop="113dp"
+            android:text="나의 식습관"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginLeft="-400dp"-->
-<!--            android:layout_marginTop="155dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="155dp"
+            android:background="#000000" />
 
 <!--&lt;!&ndash;    안좋아하는 음식 버튼    &ndash;&gt;-->
 
@@ -327,24 +328,24 @@
 
 <!--&lt;!&ndash;    알레르기 버튼    &ndash;&gt;-->
 
-<!--        <Button-->
-<!--            android:id="@+id/allergy_btn"-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:text="알레르기"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_marginTop="208dp"-->
-<!--            android:layout_marginLeft="-363dp"-->
-<!--            android:gravity="right"-->
-<!--            android:background="#00FF0000"-->
-<!--            android:textColor="#000000"/>-->
+        <Button
+            android:id="@+id/allergy_btn"
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:text="알레르기"
+            android:textSize="25dp"
+            android:layout_marginTop="458dp"
+            android:layout_marginLeft="-363dp"
+            android:gravity="right"
+            android:background="#00FF0000"
+            android:textColor="#000000"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginLeft="-400dp"-->
-<!--            android:layout_marginTop="262dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="262dp"
+            android:background="#000000" />
 
 <!--    레시피 텍스트    -->
 
@@ -388,100 +389,100 @@
 
 <!--    요리 후기 버튼    -->
 
-<!--        <Button-->
-<!--            android:id="@+id/postscript_btn"-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:text="요리 후기"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_marginTop="210dp"-->
-<!--            android:layout_marginLeft="-363dp"-->
-<!--            android:gravity="right"-->
-<!--            android:background="#00FF0000"-->
-<!--            android:textColor="#000000"/>-->
+        <Button
+            android:id="@+id/postscript_btn"
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:text="요리 후기"
+            android:textSize="25dp"
+            android:layout_marginTop="210dp"
+            android:layout_marginLeft="-363dp"
+            android:gravity="right"
+            android:background="#00FF0000"
+            android:textColor="#000000"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginLeft="-400dp"-->
-<!--            android:layout_marginTop="260dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="260dp"
+            android:background="#000000" />
 
 <!--&lt;!&ndash;    내가 본 레시피 버튼    &ndash;&gt;-->
 
-<!--        <Button-->
-<!--            android:id="@+id/identify_food_btn"-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:text="내가 본 레시피"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_marginTop="405dp"-->
-<!--            android:layout_marginLeft="-363dp"-->
-<!--            android:gravity="right"-->
-<!--            android:background="#00FF0000"-->
-<!--            android:textColor="#000000"/>-->
+        <Button
+            android:id="@+id/identify_food_btn"
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:text="내가 본 레시피"
+            android:textSize="25dp"
+            android:layout_marginTop="405dp"
+            android:layout_marginLeft="-363dp"
+            android:gravity="right"
+            android:background="#00FF0000"
+            android:textColor="#000000"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginLeft="-400dp"-->
-<!--            android:layout_marginTop="460dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="460dp"
+            android:background="#000000" />
 
-<!--        <TextView-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:layout_marginLeft="-90dp"-->
-<!--            android:layout_marginTop="245dp"-->
-<!--            android:gravity="right"-->
-<!--            android:text="내 주방 관리"/>-->
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-90dp"
+            android:layout_marginTop="245dp"
+            android:gravity="right"
+            android:text="내 주방 관리"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginLeft="-400dp"-->
-<!--            android:layout_marginTop="290dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="290dp"
+            android:background="#000000" />
 
 <!--&lt;!&ndash;    나의 레시피 버튼    &ndash;&gt;-->
 
-<!--        <Button-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:text="나의 레시피"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_marginTop="290dp"-->
-<!--            android:layout_marginLeft="-363dp"-->
-<!--            android:gravity="right"-->
-<!--            android:background="#00FF0000"-->
-<!--            android:textColor="#000000"/>-->
+        <Button
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:text="나의 레시피"
+            android:textSize="25dp"
+            android:layout_marginTop="290dp"
+            android:layout_marginLeft="-363dp"
+            android:gravity="right"
+            android:background="#00FF0000"
+            android:textColor="#000000"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginLeft="-400dp"-->
-<!--            android:layout_marginTop="340dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="340dp"
+            android:background="#000000" />
 
 <!--&lt;!&ndash;   내가 쓴 댓글 버튼     &ndash;&gt;-->
 
-<!--        <Button-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:text="내가 쓴 댓글"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_marginTop="340dp"-->
-<!--            android:layout_marginLeft="-363dp"-->
-<!--            android:gravity="right"-->
-<!--            android:background="#00FF0000"-->
-<!--            android:textColor="#000000"/>-->
+        <Button
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:text="내가 쓴 댓글"
+            android:textSize="25dp"
+            android:layout_marginTop="340dp"
+            android:layout_marginLeft="-363dp"
+            android:gravity="right"
+            android:background="#00FF0000"
+            android:textColor="#000000"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginLeft="-400dp"-->
-<!--            android:layout_marginTop="390dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="390dp"
+            android:background="#000000" />
 
         <View
             android:layout_width="match_parent"
@@ -492,23 +493,23 @@
 
 <!--        &lt;!&ndash;    설정 버튼    &ndash;&gt;-->
 
-<!--        <Button-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="100dp"-->
-<!--            android:text="설정"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_marginTop="615dp"-->
-<!--            android:layout_marginLeft="-363dp"-->
-<!--            android:gravity="right"-->
-<!--            android:background="#00FF0000"-->
-<!--            android:textColor="#000000"/>-->
+        <Button
+            android:layout_width="360dp"
+            android:layout_height="100dp"
+            android:text="설정"
+            android:textSize="25dp"
+            android:layout_marginTop="615dp"
+            android:layout_marginLeft="-363dp"
+            android:gravity="right"
+            android:background="#00FF0000"
+            android:textColor="#000000"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginLeft="-400dp"-->
-<!--            android:layout_marginTop="725dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="725dp"
+            android:background="#000000" />
 
 
     </LinearLayout>
@@ -519,642 +520,642 @@
 
 <!--&lt;!&ndash; 안좋아하는 음식 &ndash;&gt;-->
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="365dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/hate_food"-->
-<!--        android:visibility="gone"-->
-<!--        android:layout_gravity="right"-->
-<!--        android:orientation="vertical"-->
-<!--        android:background="#B4B4FF">-->
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="match_parent"
+        android:id="@+id/hate_food"
+        android:visibility="gone"
+        android:layout_gravity="right"
+        android:orientation="vertical"
+        android:background="#B4B4FF">
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-<!--    <LinearLayout-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="right"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_marginLeft="48dp"-->
-<!--        android:layout_width="365dp">-->
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:orientation="vertical"
+        android:layout_marginLeft="48dp"
+        android:layout_width="365dp">
 
         <!-- 취소 버튼 -->
-<!--        <ImageButton-->
-<!--            android:id="@+id/cancel2"-->
-<!--            android:src="@drawable/cancel"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:layout_marginTop="-5dp"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="45dp"></ImageButton>-->
+        <ImageButton
+            android:id="@+id/cancel2"
+            android:src="@drawable/cancel"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="-5dp"
+            android:layout_width="40dp"
+            android:layout_height="45dp"></ImageButton>
 
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn1"-->
-<!--            android:text="육류"-->
-<!--            android:textSize="20dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="25dp"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn1"
+            android:text="육류"
+            android:textSize="20dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn2"-->
-<!--            android:text="해물류"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="140dp"-->
-<!--            android:layout_marginTop="-90dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn2"
+            android:text="해물류"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="-90dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn3"-->
-<!--            android:text="채소"-->
-<!--            android:textSize="20dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="255dp"-->
-<!--            android:layout_marginTop="-90dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn3"
+            android:text="채소"
+            android:textSize="20dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="255dp"
+            android:layout_marginTop="-90dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn4"-->
-<!--            android:text="갑각류"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="25dp"-->
-<!--            android:layout_marginTop="25dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn4"
+            android:text="갑각류"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn5"-->
-<!--            android:text="유제품"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="140dp"-->
-<!--            android:layout_marginTop="-90dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn5"
+            android:text="유제품"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="-90dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn6"-->
-<!--            android:text="달걀"-->
-<!--            android:textSize="20dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="255dp"-->
-<!--            android:layout_marginTop="-90dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn6"
+            android:text="달걀"
+            android:textSize="20dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="255dp"
+            android:layout_marginTop="-90dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn7"-->
-<!--            android:text="건어물"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="25dp"-->
-<!--            android:layout_marginTop="25dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn7"
+            android:text="건어물"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn8"-->
-<!--            android:text="견과류"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="140dp"-->
-<!--            android:layout_marginTop="-90dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn8"
+            android:text="견과류"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="-90dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn9"-->
-<!--            android:text="과일류"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="255dp"-->
-<!--            android:layout_marginTop="-90dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn9"
+            android:text="과일류"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="255dp"
+            android:layout_marginTop="-90dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn10"-->
-<!--            android:text="버섯류"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="25dp"-->
-<!--            android:layout_marginTop="25dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn10"
+            android:text="버섯류"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn11"-->
-<!--            android:text="밀가루"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="140dp"-->
-<!--            android:layout_marginTop="-90dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn11"
+            android:text="밀가루"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="-90dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn12"-->
-<!--            android:text="쌀"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="255dp"-->
-<!--            android:layout_marginTop="-90dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
+        <Button
+            android:id="@+id/hate_btn12"
+            android:text="쌀"
+            android:textSize="18dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="255dp"
+            android:layout_marginTop="-90dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
 
-<!--        <Button-->
-<!--            android:id="@+id/hate_btn13"-->
-<!--            android:text="곡류"-->
-<!--            android:textSize="20dp"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:layout_marginStart="25dp"-->
-<!--            android:layout_marginTop="25dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
-<!--    </LinearLayout>-->
-<!--    </ScrollView>-->
-<!--    </LinearLayout>-->
+        <Button
+            android:id="@+id/hate_btn13"
+            android:text="곡류"
+            android:textSize="20dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
+    </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
 
 
 <!--&lt;!&ndash;  아래 버튼 4개  &ndash;&gt;-->
 
-<!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        android:orientation="vertical"-->
-<!--        android:id="@+id/bottom_btn"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-<!--        <LinearLayout-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:id="@+id/bottom_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
 
-<!--            android:orientation="horizontal"-->
+            android:orientation="horizontal"
 
-<!--            android:layout_width="fill_parent"-->
+            android:layout_width="fill_parent"
 
-<!--            android:layout_height="wrap_content"-->
+            android:layout_height="wrap_content"
 
-<!--            android:layout_weight="0.1">-->
+            android:layout_weight="0.1">
 
-<!--        </LinearLayout>-->
+        </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:background="#A0A0FF"-->
+        <LinearLayout
+            android:background="#A0A0FF"
 
-<!--            android:layout_width="fill_parent"-->
+            android:layout_width="fill_parent"
 
-<!--            android:layout_height="wrap_content"-->
+            android:layout_height="wrap_content"
 
-<!--            android:orientation="horizontal"-->
+            android:orientation="horizontal"
 
-<!--            android:layout_gravity="bottom"-->
+            android:layout_gravity="bottom"
 
-<!--            android:padding="6dip">-->
+            android:padding="6dip">
 
-<!--            <Button android:id="@+id/home_btn"-->
+            <Button android:id="@+id/home_btn"
 
-<!--                android:layout_width="wrap_content"-->
+                android:layout_width="wrap_content"
 
-<!--                android:layout_height="wrap_content"-->
+                android:layout_height="wrap_content"
 
-<!--                android:layout_weight="1"-->
+                android:layout_weight="1"
 
-<!--                android:layout_marginLeft="5dp"-->
+                android:layout_marginLeft="5dp"
 
-<!--                android:text="홈" />-->
+                android:text="홈" />
 
-<!--            <Button-->
-<!--                android:layout_height="wrap_content"-->
+            <Button
+                android:layout_height="wrap_content"
 
-<!--                android:layout_width="wrap_content"-->
+                android:layout_width="wrap_content"
 
-<!--                android:layout_weight="1"-->
-<!--                android:layout_marginLeft="8dp"-->
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
 
-<!--                android:text="즐겨찾기"></Button>-->
+                android:text="즐겨찾기"></Button>
 
-<!--            <Button android:id="@+id/writer_btn"-->
+            <Button android:id="@+id/writer_btn"
 
-<!--                android:layout_height="wrap_content"-->
+                android:layout_height="wrap_content"
 
-<!--                android:layout_width="wrap_content"-->
+                android:layout_width="wrap_content"
 
-<!--                android:layout_weight="1"-->
-<!--                android:layout_marginLeft="8dp"-->
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
 
-<!--                android:text="내가 쓴 글"></Button>-->
+                android:text="내가 쓴 글"></Button>
 
-<!--            <Button android:id="@+id/MY_btn"-->
+            <Button android:id="@+id/MY_btn"
 
-<!--                android:layout_height="wrap_content"-->
+                android:layout_height="wrap_content"
 
-<!--                android:layout_width="wrap_content"-->
+                android:layout_width="wrap_content"
 
-<!--                android:layout_weight="1"-->
-<!--                android:layout_marginLeft="8dp"-->
-<!--                android:layout_marginRight="5dp"-->
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="5dp"
 
-<!--                android:text="MY"></Button>-->
+                android:text="MY"></Button>
 
-<!--        </LinearLayout>-->
-<!--    </LinearLayout>-->
+        </LinearLayout>
+    </LinearLayout>
 
 
 <!--&lt;!&ndash;  알레르기  &ndash;&gt;-->
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="365dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/allergy"-->
-<!--        android:visibility="gone"-->
-<!--        android:layout_gravity="right"-->
-<!--        android:orientation="vertical"-->
-<!--        android:background="#B4B4FF">-->
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="match_parent"
+        android:id="@+id/allergy"
+        android:visibility="gone"
+        android:layout_gravity="right"
+        android:orientation="vertical"
+        android:background="#B4B4FF">
 
-<!--        <ScrollView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-<!--            <LinearLayout-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_marginLeft="48dp"-->
-<!--                android:layout_width="365dp">-->
+            <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:orientation="vertical"
+                android:layout_marginLeft="48dp"
+                android:layout_width="365dp">
 
-<!--                &lt;!&ndash; 취소 버튼 &ndash;&gt;-->
-<!--                <ImageButton-->
-<!--                    android:id="@+id/cancel3"-->
-<!--                    android:src="@drawable/cancel"-->
-<!--                    android:scaleType="centerCrop"-->
-<!--                    android:layout_marginTop="-5dp"-->
-<!--                    android:layout_width="40dp"-->
-<!--                    android:layout_height="45dp"/>-->
+                <!-- 취소 버튼 -->
+                <ImageButton
+                    android:id="@+id/cancel3"
+                    android:src="@drawable/cancel"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="-5dp"
+                    android:layout_width="40dp"
+                    android:layout_height="45dp"/>
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_marginLeft="50dp"-->
-<!--                    android:layout_marginTop="-40dp"-->
-<!--                    android:textSize="25dp"-->
-<!--                    android:text="알레르기 체크하기!"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="-40dp"
+                    android:textSize="25dp"
+                    android:text="알레르기 체크하기!"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="30dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="30dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="우유 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="우유 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="호두 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="호두 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="난류(가금류) 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="난류(가금류) 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="메밀 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="메밀 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="아황산류 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="아황산류 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="대두 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="대두 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="복숭아 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="복숭아 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="토마토 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="토마토 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="땅콩 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="땅콩 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="닭고기 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="닭고기 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="쇠고기 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="쇠고기 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="밀 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="밀 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="고등어 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="고등어 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="게 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="게 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="새우 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="새우 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="돼지고기 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="돼지고기 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="오징어 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="오징어 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="조개류 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="조개류 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="홍합 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="홍합 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="전복 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="전복 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3px"-->
-<!--                    android:layout_marginLeft="-400dp"-->
-<!--                    android:layout_marginTop="0dp"-->
-<!--                    android:background="#000000" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginLeft="-400dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000" />
 
-<!--                <CheckBox-->
-<!--                    android:layout_width="350dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="굴 알레르기"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:paddingLeft="20dp"-->
-<!--                    android:button="@null"-->
-<!--                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>-->
+                <CheckBox
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:text="굴 알레르기"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
 
-<!--            </LinearLayout>-->
-<!--        </ScrollView>-->
-<!--    </LinearLayout>-->
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
 <!--        즐겨찾기        -->
 
@@ -1419,188 +1420,188 @@
 
 <!--    &lt;!&ndash;    요리 노트 페이지    &ndash;&gt;-->
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="365dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/foodnote"-->
-<!--        android:visibility="gone"-->
-<!--        android:layout_gravity="right"-->
-<!--        android:orientation="vertical"-->
-<!--        android:background="#B4B4FF">-->
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="match_parent"
+        android:id="@+id/foodnote"
+        android:visibility="gone"
+        android:layout_gravity="right"
+        android:orientation="vertical"
+        android:background="#B4B4FF">
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-<!--    <LinearLayout-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="right"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_marginLeft="48dp"-->
-<!--        android:layout_width="365dp">-->
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:orientation="vertical"
+        android:layout_marginLeft="48dp"
+        android:layout_width="365dp">
 
 <!--    &lt;!&ndash; 요리 노트 취소 버튼 &ndash;&gt;-->
-<!--    <ImageButton-->
-<!--        android:id="@+id/foodnote_cancel"-->
-<!--        android:src="@drawable/cancel"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:layout_marginTop="-5dp"-->
-<!--        android:layout_width="40dp"-->
-<!--        android:layout_height="45dp"></ImageButton>-->
+    <ImageButton
+        android:id="@+id/foodnote_cancel"
+        android:src="@drawable/cancel"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="-5dp"
+        android:layout_width="40dp"
+        android:layout_height="45dp"></ImageButton>
 
-<!--        <TextView-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:text="요리 노트"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_marginTop="-38dp"-->
-<!--            android:layout_marginLeft="150dp"/>-->
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="요리 노트"
+            android:textSize="25dp"
+            android:layout_marginTop="-38dp"
+            android:layout_marginLeft="150dp"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:background="#000000" />
 
 <!--&lt;!&ndash;    요리 노트 전체 숫자    &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:text="전체 숫자"-->
-<!--            android:textSize="22dp"-->
-<!--            android:layout_marginLeft="10dp"/>-->
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="전체 숫자"
+            android:textSize="22dp"
+            android:layout_marginLeft="10dp"/>
 
 <!--&lt;!&ndash;    요리 노트 폴더 버튼    &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:text="폴더"-->
-<!--            android:textSize="22dp"-->
-<!--            android:layout_marginLeft="310dp"-->
-<!--            android:layout_marginTop="-30dp"/>-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="폴더"
+            android:textSize="22dp"
+            android:layout_marginLeft="310dp"
+            android:layout_marginTop="-30dp"/>
 
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_marginTop="2dp"-->
-<!--            android:layout_height="3px"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_height="3px"
+            android:background="#000000" />
 
 <!--&lt;!&ndash;   요리 노트에 글만 썼을 때     &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:text="노트 제목"-->
-<!--            android:textSize="22dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginLeft="10dp"/>-->
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="노트 제목"
+            android:textSize="22dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"/>
 
 <!--&lt;!&ndash;    요리 노트 작성 날짜    &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:text="작성 날짜"-->
-<!--            android:textSize="22dp"-->
-<!--            android:layout_marginLeft="235dp"-->
-<!--            android:layout_marginTop="-30dp"/>-->
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:text="작성 날짜"
+            android:textSize="22dp"
+            android:layout_marginLeft="235dp"
+            android:layout_marginTop="-30dp"/>
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/cancel7"-->
-<!--            android:src="@drawable/cancel"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:layout_marginTop="-36dp"-->
-<!--            android:layout_marginLeft="325dp"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="45dp"></ImageButton>-->
+        <ImageButton
+            android:id="@+id/cancel7"
+            android:src="@drawable/cancel"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="-36dp"
+            android:layout_marginLeft="325dp"
+            android:layout_width="40dp"
+            android:layout_height="45dp"></ImageButton>
 
 <!--&lt;!&ndash;    요리 노트에 글만 썼을 때 설명란    &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:text="간장3 설탕1 맛술1 3분간 끓이기..."-->
-<!--            android:textSize="22dp"-->
-<!--            android:layout_marginLeft="5dp"-->
-<!--            android:layout_marginTop="20dp"/>-->
+        <TextView
+            android:layout_width="360dp"
+            android:layout_height="30dp"
+            android:text="간장3 설탕1 맛술1 3분간 끓이기..."
+            android:textSize="22dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_marginTop="2dp"-->
-<!--            android:layout_height="3px"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_height="3px"
+            android:background="#000000" />
 
 
 <!--&lt;!&ndash;   요리 노트에 글, 사진을 넣었을 때    &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:text="노트 제목"-->
-<!--            android:textSize="22dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginLeft="170dp"/>-->
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:text="노트 제목"
+            android:textSize="22dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="170dp"/>
 
 
 <!--&lt;!&ndash;    요리 노트 작성 날짜    &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="50dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:text="날짜"-->
-<!--            android:textSize="22dp"-->
-<!--            android:layout_marginLeft="275dp"-->
-<!--            android:layout_marginTop="-30dp"/>-->
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:text="날짜"
+            android:textSize="22dp"
+            android:layout_marginLeft="275dp"
+            android:layout_marginTop="-30dp"/>
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/cancel8"-->
-<!--            android:src="@drawable/cancel"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:layout_marginTop="-36dp"-->
-<!--            android:layout_marginLeft="325dp"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="45dp"></ImageButton>-->
+        <ImageButton
+            android:id="@+id/cancel8"
+            android:src="@drawable/cancel"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="-36dp"
+            android:layout_marginLeft="325dp"
+            android:layout_width="40dp"
+            android:layout_height="45dp"></ImageButton>
 
 <!--&lt;!&ndash;    요리 노트 이미지    &ndash;&gt;-->
 
-<!--        <ImageView-->
-<!--            android:scaleType = "fitXY"-->
-<!--            android:layout_width="160dp"-->
-<!--            android:layout_height="145dp"-->
-<!--            android:layout_marginTop="-47dp"-->
-<!--            android:src="@drawable/cheese_tripe"/>-->
+        <ImageView
+            android:scaleType = "fitXY"
+            android:layout_width="160dp"
+            android:layout_height="145dp"
+            android:layout_marginTop="-47dp"
+            android:src="@drawable/cheese_tripe"/>
 
 <!--&lt;!&ndash;   요리 노트 사진 설명    &ndash;&gt;-->
 
-<!--        <TextView-->
-<!--            android:layout_width="200dp"-->
-<!--            android:layout_height="65dp"-->
-<!--            android:text="간장3 설탕1 맛술1 3분간 끓이기..."-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_marginLeft="170dp"-->
-<!--            android:layout_marginTop="-60dp"/>-->
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="65dp"
+            android:text="간장3 설탕1 맛술1 3분간 끓이기..."
+            android:textSize="18dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="-60dp"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="3px"-->
-<!--            android:layout_marginTop="-5dp"-->
-<!--            android:background="#000000" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginTop="-5dp"
+            android:background="#000000" />
 
 <!--&lt;!&ndash;    요리 노트 -> 새 노트 추가하기    &ndash;&gt;-->
 
-<!--        <Button-->
-<!--            android:id="@+id/typebtn1"-->
-<!--            android:layout_width="70dp"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:layout_marginStart="280dp"-->
-<!--            android:layout_marginTop="330dp"-->
-<!--            android:background="@drawable/circle"-->
-<!--            android:backgroundTint="#FF6495ED" />-->
-<!--    </LinearLayout>-->
-<!--    </ScrollView>-->
-<!--    </LinearLayout>-->
+        <Button
+            android:id="@+id/typebtn1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="330dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF6495ED" />
+    </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
 
 
 
