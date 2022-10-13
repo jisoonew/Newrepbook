@@ -1,5 +1,6 @@
 package com.example.newrepbook.practice;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -50,7 +51,7 @@ public class memo_Adapter extends RecyclerView.Adapter<memo_Adapter.CustomViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) { // 아이템 매칭
+    public void onBindViewHolder(@NonNull CustomViewHolder holder, @SuppressLint("RecyclerView") int position) { // 아이템 매칭
         Glide.with(holder.itemView)
                 .load(arrayList.get(position).getProfile())
                 .into(holder.tv_profile);

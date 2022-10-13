@@ -85,8 +85,7 @@
         android:scaleType = "fitXY"
         android:layout_width="160dp"
         android:layout_height="145dp"
-        android:layout_marginTop="-42dp"
-        android:src="@drawable/jfood"/>
+        android:layout_marginTop="-42dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -145,8 +144,7 @@
             android:scaleType = "fitXY"
             android:layout_width="160dp"
             android:layout_height="145dp"
-            android:layout_marginTop="-42dp"
-            android:src="@drawable/kfood"/>
+            android:layout_marginTop="-42dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -204,8 +202,7 @@
             android:scaleType = "fitXY"
             android:layout_width="160dp"
             android:layout_height="145dp"
-            android:layout_marginTop="-42dp"
-            android:src="@drawable/lfood"/>
+            android:layout_marginTop="-42dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -263,8 +260,7 @@
             android:scaleType = "fitXY"
             android:layout_width="160dp"
             android:layout_height="145dp"
-            android:layout_marginTop="-42dp"
-            android:src="@drawable/ufood"/>
+            android:layout_marginTop="-42dp" />
 
         <TextView
             android:layout_width="wrap_content"

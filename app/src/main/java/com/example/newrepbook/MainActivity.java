@@ -194,63 +194,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//// 알레르기 버튼 누른 후
-//
-        LinearLayout allergy = findViewById(R.id.allergy);
-
-        allergy.bringToFront();  // 맨앞으로 보이기
-
-        Button allergy_btn = (Button) findViewById(R.id.allergy_btn);
-
-        allergy_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                allergy.setVisibility(VISIBLE);
-            }
-        });
-//
-//
-//// 알레르기 UI의 취소 버튼
-//
-        ImageButton cancel3 = findViewById(R.id.cancel3);
-
-        cancel3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                allergy.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
-
-            }
-        });
-
-
-// 요리 후기 버튼 누른 후
-//
-        LinearLayout postscript = findViewById(R.id.postscript);
-
-        postscript.bringToFront();  // 맨앞으로 보이기
-
-        Button postscript_btn = (Button) findViewById(R.id.postscript_btn);
-
-        postscript_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                postscript.setVisibility(VISIBLE);
-            }
-        });
-//
-
-// 요리 후기 UI의 취소 버튼
-
-        ImageButton postscript_cancel = findViewById(R.id.postscript_cancel);
-
-        postscript_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                postscript.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
-
-            }
-        });
-
 //// 내가 본 레시피 버튼 누른 후
 //
         LinearLayout identify_food = findViewById(R.id.identify_food);
