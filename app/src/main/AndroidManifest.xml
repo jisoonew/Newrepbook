@@ -51,6 +51,7 @@
         <activity android:name=".ui1"></activity>
         <activity android:name=".listMainActivity"></activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".practice.postprint"></activity>
 
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"

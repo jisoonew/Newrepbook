@@ -1,6 +1,7 @@
 package com.example.newrepbook.practice;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -68,7 +69,10 @@ public class SampleMainActivity extends AppCompatActivity implements memo_Adapte
         adapter.OnItemClickListener(new memo_Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(SampleMainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SampleMainActivity.this, postprint.class);
+                intent.putExtra("표지션 값", arrayList.get(position).getName());
+                startActivity(intent);
+//                Toast.makeText(SampleMainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
             }
         });
         recyclerView.setAdapter(adapter);
