@@ -31,7 +31,7 @@
 <!--        </activity>-->
 
         <activity
-            android:name=".practice.SampleMainActivity"
+            android:name=".listMainActivity"
             android:exported="true"
             android:usesCleartextTraffic="true">
             <intent-filter>
@@ -47,11 +47,12 @@
         <activity android:name=".PasswordResetActivity"></activity>
         <activity android:name=".CameraActivity"></activity>
         <activity android:name=".GalleryActivity"></activity>
-        <activity android:name=".AddPostActivity"></activity>
-        <activity android:name=".ui1"></activity>
-        <activity android:name=".listMainActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".practice.postprint"></activity>
+        <activity android:name=".ui1"></activity>
+        <activity android:name=".AddPostActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".practice.SampleMainActivity"></activity>
+        <activity android:name=".PostActivity"></activity>
 
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"

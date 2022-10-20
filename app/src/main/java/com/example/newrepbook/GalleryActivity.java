@@ -19,6 +19,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import static com.example.newrepbook.Util.GALLERY_IMAGE;
+import static com.example.newrepbook.Util.GALLERY_VIDEO;
+import static com.example.newrepbook.Util.INTENT_MEDIA;
 
 import io.reactivex.annotations.NonNull;
 
@@ -40,7 +43,7 @@ public class GalleryActivity extends AppCompatActivity {
                 startToast("권한을 허용해주세요.");
             }
         }else {
-            recyclerinit();
+            recyclerInit();
         }
     }
 
@@ -49,7 +52,7 @@ public class GalleryActivity extends AppCompatActivity {
         switch (requestCode) {
             case 1: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    recyclerinit();
+                    recyclerInit();
                 } else {
                     finish();
                     startToast("권한을 허용해주세요.");
@@ -58,8 +61,9 @@ public class GalleryActivity extends AppCompatActivity {
         }
     }
 
-    private void recyclerinit() {
+    private void recyclerInit() {
         final int numberOfColums = 3;
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, numberOfColums));
@@ -77,10 +81,11 @@ public class GalleryActivity extends AppCompatActivity {
         String[] projection;
 
         Intent intent = getIntent();
-        if(intent.getStringExtra("media").equals("video")){
+        final int media = intent.getIntExtra(INTENT_MEDIA, GALLERY_IMAGE);
+        if(media == GALLERY_VIDEO){
             uri = android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
             projection = new String[] { MediaStore.MediaColumns.DATA, MediaStore.Video.Media.BUCKET_DISPLAY_NAME };
-        } else {
+        }else{
             uri = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             projection = new String[] { MediaStore.MediaColumns.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME };
         }
@@ -88,10 +93,10 @@ public class GalleryActivity extends AppCompatActivity {
         cursor = activity.getContentResolver().query(uri, projection, null, null, null);
         column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
 
-        while(cursor.moveToNext()){
-                    PathOfImage = cursor.getString(column_index_data);
+        while (cursor.moveToNext()) {
+            PathOfImage = cursor.getString(column_index_data);
 
-                    listOfAllImages.add(PathOfImage);
+            listOfAllImages.add(PathOfImage);
         }
         return listOfAllImages;
     }

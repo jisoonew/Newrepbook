@@ -1,15 +1,16 @@
 package com.example.newrepbook;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Addpostinfo {
+public class PostInfo implements Serializable {
     private String title;
     private ArrayList<String> contents;
     private String publisher;
     private Date createdAt;
 
-    public Addpostinfo(String title, ArrayList<String> contents, String publisher, Date createdAt){
+    public PostInfo(String title, ArrayList<String> contents, String publisher, Date createdAt){
         this.title = title;
         this.contents = contents;
         this.publisher = publisher;

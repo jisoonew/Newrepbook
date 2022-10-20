@@ -53,7 +53,6 @@ public class SampleMainActivity extends AppCompatActivity implements memo_Adapte
                     memo_list tv_memo_list = snapshot.getValue(memo_list.class);
                     String str2 = dataSnapshot.child("name").getValue(String.class);
                     arrayList.add(tv_memo_list);
-
                 }
                 adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
             }

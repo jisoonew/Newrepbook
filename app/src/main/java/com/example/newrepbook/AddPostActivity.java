@@ -1,10 +1,14 @@
 package com.example.newrepbook;
 
+import static com.example.newrepbook.Util.GALLERY_IMAGE;
+import static com.example.newrepbook.Util.GALLERY_VIDEO;
+import static com.example.newrepbook.Util.INTENT_MEDIA;
+import static com.example.newrepbook.Util.INTENT_PATH;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.MemoryFile;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
@@ -19,11 +23,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -50,6 +51,7 @@ public class AddPostActivity extends AppCompatActivity {
         private EditText selectedEdit;
         private RelativeLayout loading;
         private int pathCount, successCount;
+        private PostInfo postInfo;
 
         public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +76,8 @@ public class AddPostActivity extends AppCompatActivity {
                 }
             }
         });
+
+            postInfo = (PostInfo) getIntent().getSerializableExtra("postInfo");
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -81,7 +85,7 @@ public class AddPostActivity extends AppCompatActivity {
         switch(requestCode){
             case 0 :
                 if (resultCode == Activity.RESULT_OK) {
-                    String profilePath = data.getStringExtra("profilePath");
+                    String profilePath = data.getStringExtra(INTENT_PATH);
                     pathList.add(profilePath);
 
                     ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -123,7 +127,7 @@ public class AddPostActivity extends AppCompatActivity {
                 break;
             case 1:
                 if (resultCode == Activity.RESULT_OK) {
-                    String profilePath = data.getStringExtra("profilePath");
+                    String profilePath = data.getStringExtra(INTENT_PATH);
                     Glide.with(this).load(profilePath).override(1000).into(selectedImageView);
                 }
                 break;
@@ -137,10 +141,10 @@ public class AddPostActivity extends AppCompatActivity {
                     storageUpdate();
                 break;
                 case R.id.video_addpost: // 게시물의 비디오 버튼
-                    myStartActivity(GalleryActivity.class, "video", 0);
+                    myStartActivity(GalleryActivity.class, GALLERY_VIDEO, 0);
                     break;
                 case R.id.image_addpost: // 게시물의 이미지 버튼
-                    myStartActivity(GalleryActivity.class, "image", 0);
+                    myStartActivity(GalleryActivity.class, GALLERY_IMAGE, 0);
                     break;
                 case R.id.buttonsBackground:
                 if(buttonsBackground.getVisibility() == View.VISIBLE){
@@ -148,11 +152,11 @@ public class AddPostActivity extends AppCompatActivity {
                     }
                     break;
                 case R.id.imageModify:
-                    myStartActivity(GalleryActivity.class, "image", 1);
+                    myStartActivity(GalleryActivity.class, GALLERY_IMAGE, 1);
                     buttonsBackground.setVisibility(View.GONE);
                     break;
                 case R.id.videoModify:
-                    myStartActivity(GalleryActivity.class, "video", 1);
+                    myStartActivity(GalleryActivity.class, GALLERY_VIDEO, 1);
                     buttonsBackground.setVisibility(View.GONE);
                     break;
                 case R.id.delete:
@@ -182,7 +186,7 @@ public class AddPostActivity extends AppCompatActivity {
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReference();
             FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-            final DocumentReference documentReference = firebaseFirestore.collection("posts").document();
+            final DocumentReference documentReference = postInfo == null ? firebaseFirestore.collection("posts").document() : firebaseFirestore.collection("posts").document(user.getUid());
 
             for (int i = 0; i < parent.getChildCount(); i++){
                 LinearLayout linearLayout = (LinearLayout)parent.getChildAt(i);
@@ -219,8 +223,8 @@ public class AddPostActivity extends AppCompatActivity {
                                             successCount++;
                                             if(pathList.size() == successCount){
                                                 // 완료
-                                                Addpostinfo addpostinfo = new Addpostinfo(title, contentsList, user.getUid(), new Date());
-                                                storeuploader(documentReference, addpostinfo);
+                                                PostInfo postInfo = new PostInfo(title, contentsList, user.getUid(), new Date());
+                                                storeuploader(documentReference, postInfo);
                                                 for (int a = 0; a < contentsList.size(); a++){
                                                     Log.e("로그: ", "콘텐츠"+contentsList.get(a));
                                                 }
@@ -239,16 +243,16 @@ public class AddPostActivity extends AppCompatActivity {
 
             }
             if(pathList.size() == 0){
-                Addpostinfo addpostinfo = new Addpostinfo(title, contentsList, user.getUid(), new Date());
-                storeuploader(documentReference, addpostinfo);
+                PostInfo postInfo = new PostInfo(title, contentsList, user.getUid(), new Date());
+                storeuploader(documentReference, postInfo);
             }
         } else {
             startToast("제목을 입력해주세요");
         }
     }
 
-    public void storeuploader(DocumentReference documentReference, Addpostinfo addpostinfo){
-        documentReference.set(addpostinfo)
+    public void storeuploader(DocumentReference documentReference, PostInfo postInfo){
+        documentReference.set(postInfo)
             .addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
@@ -270,9 +274,9 @@ public class AddPostActivity extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void myStartActivity(Class c, String media, int requestCode) {
+    private void myStartActivity(Class c, int media, int requestCode) {
         Intent intent = new Intent(this, c);
-        intent.putExtra("media",  media) ;
+        intent.putExtra(INTENT_MEDIA, media);
         startActivityForResult(intent, requestCode);
     }
 

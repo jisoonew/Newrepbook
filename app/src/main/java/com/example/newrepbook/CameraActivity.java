@@ -16,12 +16,15 @@
 
 package com.example.newrepbook;
 
+import static com.example.newrepbook.Util.INTENT_PATH;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
 import android.util.Log;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,8 +45,6 @@ public class CameraActivity extends AppCompatActivity {
 
         @Override
         public void onImageAvailable(ImageReader reader) {
-            Log.e("로그", "캡쳐");
-
             Image mImage = reader.acquireNextImage();
             File mFile = new File(getExternalFilesDir(null), "profileImage.jpg");
 
@@ -68,7 +69,7 @@ public class CameraActivity extends AppCompatActivity {
             }
 
             Intent intent = new Intent();
-            intent.putExtra("profilePath", mFile.toString());
+            intent.putExtra(INTENT_PATH, mFile.toString());
             setResult(Activity.RESULT_OK, intent);
 
             camera2BasicFragment.closeCamera();
@@ -81,6 +82,7 @@ public class CameraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+//        setToolbarTitle(getResources().getString(R.string.app_name));
         if (null == savedInstanceState) {
             camera2BasicFragment = new Camera2BasicFragment();
             camera2BasicFragment.setOnImageAvailableListener(mOnImageAvailableListener);
@@ -89,5 +91,4 @@ public class CameraActivity extends AppCompatActivity {
                     .commit();
         }
     }
-
 }

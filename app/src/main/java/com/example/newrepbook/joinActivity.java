@@ -1,5 +1,7 @@
 package com.example.newrepbook;
 
+import static com.example.newrepbook.Util.INTENT_PATH;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -44,7 +46,7 @@ public class joinActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String profilePath;
     private RelativeLayout loading;
-    EditText mnick, mphon;
+    EditText mnick, mphon, mname, maddress;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class joinActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         loading = findViewById(R.id.loading);
-        profileImageView = findViewById(R.id.join_image);
+        profileImageView = findViewById(R.id.profileImageView);
         profileImageView.setOnClickListener(onClickListener);
         findViewById(R.id.btn_register).setOnClickListener(onClickListener);
         findViewById(R.id.imageModify).setOnClickListener(onClickListener);
@@ -79,7 +81,7 @@ public class joinActivity extends AppCompatActivity {
         switch(requestCode){
           case 0 :
               if (resultCode == Activity.RESULT_OK) {
-                  profilePath = data.getStringExtra("profilePath");
+                  profilePath = data.getStringExtra(INTENT_PATH);
                   Glide.with(this).load(profilePath).centerCrop().override(500).into(profileImageView);
               }
               break;
@@ -112,13 +114,14 @@ public class joinActivity extends AppCompatActivity {
         String passwordCheck = ((EditText) findViewById(R.id.password2)).getText().toString();
         mnick = findViewById(R.id.nick);
         mphon = findViewById(R.id.phon);
+        mname = findViewById(R.id.name);
+        maddress = findViewById(R.id.address);
 
         if(email.length()>0 && password.length()>0 && passwordCheck.length()>0) {
-            loading.setVisibility(View.VISIBLE);
             FirebaseStorage storage = FirebaseStorage.getInstance();
             final StorageReference storageRef = storage.getReference();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            StorageReference mountainImagesRef = storageRef.child("images/"+ user.getUid() +"/"+user.getUid()+".jpg");
+            StorageReference mountainImagesRef = storageRef.child("images/"+ user.getUid() +"/profileImage.jpg");
 
 
             try{
@@ -156,6 +159,9 @@ public class joinActivity extends AppCompatActivity {
                                                         String uid = user.getUid();
                                                         String nick = mnick.getText().toString().trim();
                                                         String phon = mphon.getText().toString().trim();
+                                                        String name = mname.getText().toString().trim();
+                                                        String address = maddress.getText().toString().trim();
+
 
                                                         //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
                                                         HashMap<Object, String> hashMap = new HashMap<>();
@@ -164,11 +170,13 @@ public class joinActivity extends AppCompatActivity {
                                                         hashMap.put("email", email);
                                                         hashMap.put("nick", nick);
                                                         hashMap.put("phon", phon);
+                                                        hashMap.put("name", name);
+                                                        hashMap.put("address", address);
                                                         hashMap.put("image", downloadUri.toString());
 
                                                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                                                         DatabaseReference reference = database.getReference("Users");
-                                                        reference.child(uid).setValue(hashMap);
+                                                        reference.child(uid).child("Personal Data").setValue(hashMap);
 
 
                                                         //가입이 이루어져을시 가입 화면을 빠져나감.

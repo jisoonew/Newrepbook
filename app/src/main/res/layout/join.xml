@@ -36,12 +36,20 @@
             app:cardCornerRadius="100dp">
 
             <ImageView
-                android:id="@+id/join_image"
+                android:id="@+id/profileImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
         </androidx.cardview.widget.CardView>
+
+<!--        <EditText-->
+<!--            android:id="@+id/name"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:ems="0"-->
+<!--            android:hint="이름"-->
+<!--            android:inputType="textPersonName" />-->
 
         <EditText
             android:id="@+id/nick"
@@ -49,6 +57,13 @@
             android:layout_height="50dp"
             android:ems="0"
             android:hint="닉네임"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="이름"
             android:inputType="textPersonName" />
 
         <EditText
@@ -82,11 +97,27 @@
             android:hint=" 휴대폰 번호"
             android:inputType="phone" />
 
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint=" 주소"
+            android:inputType="textPostalAddress" />
+
+<!--        <EditText-->
+<!--            android:id="@+id/address"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:ems="10"-->
+<!--            android:hint=" 주소"-->
+<!--            android:inputType="phone" />-->
+
         <Button
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:padding="10dp"
             android:text="회원가입"
@@ -119,7 +150,6 @@
                     android:text="갤러리"
                     android:textSize="20dp" />
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 

@@ -38,10 +38,9 @@ public class item_post_Adapter extends RecyclerView.Adapter<item_post_Adapter.Ga
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("profilePath", mDataset.get(galleryViewHolder.getAdapterPosition()));
-                activity.setResult(Activity.RESULT_OK, resultIntent);
-                activity.finish();
+                Intent resultIntent = new Intent(activity, PostActivity.class);
+                resultIntent.putExtra("postInfo", mDataset.get(galleryViewHolder.getAdapterPosition()));
+                activity.startActivity(resultIntent);
             }
         });
         return galleryViewHolder;
