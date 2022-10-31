@@ -53,11 +53,11 @@ public class memo_Adapter extends RecyclerView.Adapter<memo_Adapter.CustomViewHo
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, @SuppressLint("RecyclerView") int position) { // 아이템 매칭
         Glide.with(holder.itemView)
-                .load(arrayList.get(position).getProfile())
+                .load(arrayList.get(position).getImage())
                 .into(holder.tv_profile);
         holder.tv_text1.setText(arrayList.get(position).getName());
-        holder.tv_text2.setText(arrayList.get(position).getComment());
-        holder.tv_text3.setText(arrayList.get(position).getStaffkey());
+        holder.tv_text2.setText(arrayList.get(position).getAddress());
+        holder.tv_text3.setText(arrayList.get(position).getUid());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,8 +86,6 @@ public class memo_Adapter extends RecyclerView.Adapter<memo_Adapter.CustomViewHo
             this.tv_text1 = itemView.findViewById(R.id.tv_text1);
             this.tv_text2 = itemView.findViewById(R.id.tv_text2);
             this.tv_text3 = itemView.findViewById(R.id.tv_text3);
-
-
         }
     }
 }

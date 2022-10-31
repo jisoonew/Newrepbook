@@ -4,18 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class PostInfo implements Serializable {
+public class PostInfo2 implements Serializable {
     private String title;
     private ArrayList<String> contents;
     private String publisher;
     private Date createdAt;
     private String profile;
 
-    public PostInfo(String title, ArrayList<String> contents, String publisher, Date createdAt){
+    public PostInfo2(String title, ArrayList<String> contents, String publisher, Date createdAt, String profile){
         this.title = title;
         this.contents = contents;
         this.publisher = publisher;
         this.createdAt = createdAt;
+        this.profile = profile;
     }
 
     public String getTitle(){return this.title;}

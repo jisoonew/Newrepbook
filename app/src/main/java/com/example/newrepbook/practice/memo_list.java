@@ -1,19 +1,19 @@
 package com.example.newrepbook.practice;
 
 public class memo_list {
-    private String profile;
+    private String image;
     private String name; //제목
-    private String comment; //내용
-    private String staffkey;
+    private String address; //내용
+    private String uid;
 
     public memo_list() {}
 
-    public String getProfile() {
-        return profile;
+    public String getImage() {
+        return image;
     }
 
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getName() {
@@ -24,27 +24,27 @@ public class memo_list {
         this.name = name;
     }
 
-    public String getComment() {
-        return comment;
+    public String getAddress() {
+        return address;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getStaffkey() {
-        return staffkey;
+    public String getUid() {
+        return uid;
     }
 
-    public void setStaff(String staffkey) {
-        this.staffkey = staffkey;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     //값을 추가할때 쓰는 함수
-    public memo_list(String profile, String name, String comment, String staffkey){
-        this.profile = profile;
+    public memo_list(String image, String name, String address, String uid){
+        this.image = image;
         this.name = name;
-        this.comment = comment;
-        this.staffkey = staffkey;
+        this.address = address;
+        this.uid = uid;
     }
 }

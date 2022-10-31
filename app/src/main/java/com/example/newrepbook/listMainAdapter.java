@@ -21,45 +21,30 @@ import com.google.firebase.firestore.core.InFilter;
 import java.util.ArrayList;
 
 public class listMainAdapter extends RecyclerView.Adapter<listMainAdapter.listViewHolder> {
-    private ArrayList<PostInfo> mDataset;
+    private ArrayList<PostInfo2> mDataset;
     private Activity activity;
+    private ImageView tv_profile;
 
     static class listViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
-        listViewHolder(CardView v) {
-            super(v);
-            cardView = v;
+        ImageView tv_profile;
+        TextView tv_text1;
+        TextView tv_text2;
+        TextView tv_text3;
 
-//            LinearLayout contentsLayout = cardView.findViewById(R.id.contentsLayout);
-//            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//            ArrayList<String> contentsList = position.getContents();
-//
-//            if(contentsLayout.getChildCount() == 0){
-//                for (int i = 0; i < contentsList.size() ; i++){
-//                    String contents = contentsList.get(i);
-//                    if(Patterns.WEB_URL.matcher(contents).matches()){
-//                        ImageView imageView = new ImageView(activity);
-//                        imageView.setLayoutParams(layoutParams);
-//                        imageView.setAdjustViewBounds(true);
-//                        imageView.setScaleType(ImageView.ScaleType.FIT_XY); // 리스트 글의 썸네일이 꽉차게 보임
-//                        contentsLayout.addView(imageView);
-//                        Glide.with(activity).load(contents).override(1000).thumbnail(0.1f).into(imageView);
-//                    }else {
-//                        TextView textView = new TextView(activity);
-//                        textView.setLayoutParams(layoutParams);
-//                        textView.setText(contents);
-//                        contentsLayout.addView(textView);
-//                    }
-//                }
-//            }
-
+        listViewHolder(CardView itemView) {
+            super(itemView);
+            cardView = itemView;
+            this.tv_profile = itemView.findViewById(R.id.tv_profile);
+            this.tv_text1 = itemView.findViewById(R.id.tv_text1);
+            this.tv_text2 = itemView.findViewById(R.id.tv_text2);
+            this.tv_text3 = itemView.findViewById(R.id.tv_text3);
         }
     }
 
-    public listMainAdapter(Activity activity, ArrayList<PostInfo> myDataset) {
+    public listMainAdapter(Activity activity, ArrayList<PostInfo2> myDataset) {
         mDataset = myDataset;
         this.activity = activity;
-
     }
 
     @Override
@@ -75,22 +60,21 @@ public class listMainAdapter extends RecyclerView.Adapter<listMainAdapter.listVi
         cardView.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(activity, PostActivity.class);
-                intent.putExtra("postInfo", mDataset.get(listViewHolder.getAdapterPosition()));
+                intent.putExtra("postInfo2", mDataset.get(listViewHolder.getAdapterPosition()));
                 activity.startActivity(intent);
             }
         });
-
-
         return listViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull final listViewHolder holder, int position) {
-        CardView cardView = holder.cardView;
-        TextView tv_text1 = cardView.findViewById(R.id.tv_text1);
-        TextView tv_text2 = cardView.findViewById(R.id.tv_text2);
-        tv_text1.setText(mDataset.get(position).getTitle());
-        tv_text2.setText(mDataset.get(position).getPublisher());
+        Glide.with(holder.itemView)
+                .load(mDataset.get(position).getProfile())
+                .into(holder.tv_profile);
+        holder.tv_text1.setText(mDataset.get(position).getTitle());
+        holder.tv_text2.setText(mDataset.get(position).getPublisher());
+
     }
 
     @Override
@@ -98,9 +82,9 @@ public class listMainAdapter extends RecyclerView.Adapter<listMainAdapter.listVi
         return mDataset.size() ;
     }
 
-    private void myStartActivity(Class c, PostInfo postInfo) {
+    private void myStartActivity(Class c, PostInfo postInfo2) {
         Intent intent = new Intent(activity, c);
-        intent.putExtra("postInfo", postInfo);
+        intent.putExtra("postInfo2", postInfo2);
         activity.startActivity(intent);
     }
 
