@@ -2,14 +2,10 @@ package com.example.newrepbook.practice;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,7 +40,7 @@ public class memo_Adapter extends RecyclerView.Adapter<memo_Adapter.CustomViewHo
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.practicelistviewactivity, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listviewactivity, parent, false);
         CustomViewHolder holder = new CustomViewHolder(view);
 
         return holder;
@@ -84,8 +80,6 @@ public class memo_Adapter extends RecyclerView.Adapter<memo_Adapter.CustomViewHo
             super(itemView);
             this.tv_profile = itemView.findViewById(R.id.tv_profile);
             this.tv_text1 = itemView.findViewById(R.id.tv_text1);
-            this.tv_text2 = itemView.findViewById(R.id.tv_text2);
-            this.tv_text3 = itemView.findViewById(R.id.tv_text3);
         }
     }
 }

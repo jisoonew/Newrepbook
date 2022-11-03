@@ -11,12 +11,4 @@ public class GlobalApplication extends Application {
 
         KakaoSdk.init(this,"88268c08d19d0174931ca484732ec09a");
     }
-//    mOAuthLoginModule = OAuthLogin.getInstance();
-//        mOAuthLoginModule.init(
-//    LoginActivity.this
-//            ,getString(R.string.naver_client_id)
-//                ,getString(R.string.naver_client_secret)
-//                ,getString(R.string.app_name)
-//
-//);
 }

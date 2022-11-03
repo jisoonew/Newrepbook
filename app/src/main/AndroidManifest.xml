@@ -40,14 +40,12 @@
         </activity>
 
         <activity android:name=".situation"></activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".loginActivity"></activity>
         <activity android:name=".joinActivity"></activity>
+        <activity android:name=".loginActivity"></activity>
         <activity android:name=".PasswordResetActivity"></activity>
         <activity android:name=".CameraActivity"></activity>
         <activity android:name=".GalleryActivity"></activity>
         <activity android:name=".practice.SampleMainActivity"></activity>
-        <activity android:name=".ui1"></activity>
         <activity android:name=".AddPostActivity"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".practice.postprint"></activity>

@@ -2,13 +2,10 @@ package com.example.newrepbook;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Parcelable;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,29 +13,24 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.firestore.core.InFilter;
 
 import java.util.ArrayList;
 
 public class listMainAdapter extends RecyclerView.Adapter<listMainAdapter.listViewHolder> {
     private ArrayList<PostInfo2> mDataset;
     private Activity activity;
-    private ImageView tv_profile;
 
     static class listViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
         ImageView tv_profile;
         TextView tv_text1;
-        TextView tv_text2;
-        TextView tv_text3;
 
         listViewHolder(CardView itemView) {
             super(itemView);
             cardView = itemView;
             this.tv_profile = itemView.findViewById(R.id.tv_profile);
+            tv_profile.setScaleType(ImageView.ScaleType.FIT_XY); // 이미지가 꽉차게 보임
             this.tv_text1 = itemView.findViewById(R.id.tv_text1);
-            this.tv_text2 = itemView.findViewById(R.id.tv_text2);
-            this.tv_text3 = itemView.findViewById(R.id.tv_text3);
         }
     }
 
@@ -55,7 +47,7 @@ public class listMainAdapter extends RecyclerView.Adapter<listMainAdapter.listVi
     @NonNull
     @Override
     public listMainAdapter.listViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CardView cardView = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.practicelistviewactivity, parent, false);
+        CardView cardView = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.listviewactivity, parent, false);
         final listViewHolder listViewHolder = new listViewHolder(cardView);
         cardView.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -73,8 +65,6 @@ public class listMainAdapter extends RecyclerView.Adapter<listMainAdapter.listVi
                 .load(mDataset.get(position).getProfile())
                 .into(holder.tv_profile);
         holder.tv_text1.setText(mDataset.get(position).getTitle());
-        holder.tv_text2.setText(mDataset.get(position).getPublisher());
-
     }
 
     @Override

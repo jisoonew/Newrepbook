@@ -49,25 +49,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_home);
         mAuth = FirebaseAuth.getInstance();
 
-//        LinearLayout bottom_btn = (LinearLayout) findViewById(R.id.bottom_btn);
-
         ViewPager pager = (ViewPager) findViewById(R.id.viewpager);
         ViewPager pager2 = (ViewPager) findViewById(R.id.viewpager2);
 
         Button btn_first = (Button) findViewById(R.id.btn_first);     // 홈 버튼
         Button btn_second = (Button) findViewById(R.id.btn_second);   // 레시피
         Button btn_third = (Button) findViewById(R.id.btn_third);     // 랭킹
-//        Button btn_four = (Button) findViewById(R.id.btn_four);       // 꿀팁
 
         Button tab_Item5 = (Button) findViewById(R.id.tab_Item5);
         Button tab_Item6 = (Button) findViewById(R.id.tab_Item6);
         Button tab_Item7 = (Button) findViewById(R.id.tab_Item7);
-//        Button tab_Item8 = (Button) findViewById(R.id.tab_Item8);
 
-//        findViewById(R.id.logout_btn).setOnClickListener(onClickListener);
         findViewById(R.id.bookmark_btn).setOnClickListener(onClickListener);
         findViewById(R.id.bookmark_cancel).setOnClickListener(onClickListener);
-//        findViewById(R.id.floatingActionButton).setOnClickListener(onClickListener);
 
         pager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
         pager.setCurrentItem(0);
@@ -94,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
         btn_second.setTag(1);
         btn_third.setOnClickListener(movePageListener);
         btn_third.setTag(2);
-//        btn_four.setOnClickListener(movePageListener);
-//        btn_four.setTag(3);
 
 
         // 동그라미 보이기
@@ -116,8 +108,6 @@ public class MainActivity extends AppCompatActivity {
         tab_Item6.setTag(1);
         tab_Item7.setOnClickListener(movePageListener2);
         tab_Item7.setTag(2);
-//        tab_Item8.setOnClickListener(movePageListener2);
-//        tab_Item8.setTag(3);
 
 
         //메뉴 버튼을 누른 후

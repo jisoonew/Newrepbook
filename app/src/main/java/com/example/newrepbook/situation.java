@@ -22,8 +22,8 @@ public class situation extends AppCompatActivity {
         tab_Item9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ui1.class);
-                startActivityForResult(intent,sub);//액티비티 띄우기
+//                Intent intent = new Intent(getApplicationContext(), ui1.class);
+//                startActivityForResult(intent,sub);//액티비티 띄우기
             }
         });
 

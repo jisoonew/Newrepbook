@@ -35,9 +35,6 @@ public class listMainActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-//        PostInfo postInfo = (PostInfo) getIntent().getSerializableExtra("postInfo");
-//        ArrayList<String> contentsList = postInfo.getContents();
-//        String contents = contentsList.get(1);
 
         if (firebaseUser != null) { // 유저가 존재한다면
             firebaseFirestore.collection("posts").get()
