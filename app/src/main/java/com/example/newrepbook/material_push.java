@@ -1,75 +1,84 @@
 package com.example.newrepbook;
 
-import static com.android.volley.VolleyLog.TAG;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Patterns;
-import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
-public class material_push extends BasicActivity {
-    private static final String TAG = "material_push";
-    private FirebaseFirestore firebaseFirestore;
-    private FirebaseUser firebaseUser;
-    private FirebaseUser firebaseUser2;
+public class material_push extends AppCompatActivity {
+    ListView listView;
+    DatabaseReference databaseReference;
+    List<String> title_list, item_list;
+    ArrayAdapter<String> arrayAdapter;
+    Model model;
+    ArrayList<Model> itemlist = new ArrayList<Model>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.purchasing_materials);
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        Log.e("로그 : ", "데이터 : " + FirebaseAuth.getInstance().getCurrentUser().getUid());
+        listView = findViewById(R.id.listView);
 
-        if (firebaseUser != null) { // 유저가 존재한다면
-            firebaseFirestore.collection("materias").get() // collectionGroup으로 상위 콜렉션 밑에 하위 콜렉션을 찾을 수 있음
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) { // 성공적이면
-                                ArrayList<material_info> material_info1 = new ArrayList<>();  // 글에 대한 정보를
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-//                                    Log.d(TAG, document.getId() + " => " + document.getData()); // posts 저장된 정보 출력
-                                    material_info1.add(new material_info( // postinfo에 저장되어 있는 정보들을 postList에 넣는다
-                                            document.getData().get("material_name").toString()
-                                    ));
-                                }
-                                RecyclerView material_List = findViewById(R.id.material_List);
-                                material_List.setHasFixedSize(true);
-                                material_List.setLayoutManager(new LinearLayoutManager(material_push.this)); // 아이템 뷰가 나열되는 형태를 관리하기 위한 요소를 제공하는데, 이를 레이아웃매니저라고 함
-                                RecyclerView.Adapter mAdapter = new material_pushAdapter(material_push.this, material_info1);
-                                material_List.setAdapter(mAdapter);
-                            } else {
-                                Log.d(TAG, "Error getting documents: ", task.getException());
+        title_list = new ArrayList<>();
+        item_list = new ArrayList<>();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("listview");
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.textView,title_list); // 이걸로 원하는 정보 끌어오기
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot d : dataSnapshot.getChildren()){
+                    model=d.getValue(Model.class);
+                    title_list.add(model.getTitle());
+                    itemlist.add(model);
+                }
+                listView.setAdapter(arrayAdapter);
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(material_push.this, itemFetch.class);
+
+                        Model sublistviewList = null;
+                        for (Model m:itemlist)
+                        {
+                            if(m.getTitle().equals(title_list.get(position)))
+                            {
+                                sublistviewList=m;
+                                break;
                             }
                         }
-                    });
-        }
-    }
-    protected void onResume() {
-        super.onResume();
+                        ArrayList<String> subitemListFinal = new ArrayList<>();
+                        subitemListFinal.add(sublistviewList.getItem1());
+                        subitemListFinal.add(sublistviewList.getItem2());
+                        subitemListFinal.add(sublistviewList.getItem3());
+                        subitemListFinal.add(sublistviewList.getTitle());
+
+                        intent.putStringArrayListExtra("item", subitemListFinal);
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

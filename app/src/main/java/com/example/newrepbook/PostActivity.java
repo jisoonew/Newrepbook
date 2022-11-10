@@ -40,11 +40,6 @@ import java.util.Date;
 
 public class PostActivity extends BasicActivity {
 
-    private FirebaseFirestore firebaseFirestore;
-    private FirebaseUser firebaseUser;
-    private FirebaseAuth mAuth;
-    private FirebaseDatabase firebaseDatabase;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
