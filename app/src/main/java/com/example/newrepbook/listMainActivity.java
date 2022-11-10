@@ -35,7 +35,6 @@ public class listMainActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-
         if (firebaseUser != null) { // 유저가 존재한다면
             firebaseFirestore.collection("posts").get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -53,10 +52,10 @@ public class listMainActivity extends AppCompatActivity {
                                             document.getData().get("profile").toString()));
                                     Log.e("로그 : ", "데이터 : "+document.getData().get("title").toString());
                                 }
+
                                 RecyclerView recyclerView = findViewById(R.id.recyclerView);
                                 recyclerView.setHasFixedSize(true);
                                 recyclerView.setLayoutManager(new LinearLayoutManager(listMainActivity.this)); // 아이템 뷰가 나열되는 형태를 관리하기 위한 요소를 제공하는데, 이를 레이아웃매니저라고 함
-
                                 RecyclerView.Adapter mAdapter = new listMainAdapter(listMainActivity.this, postList2);
                                 recyclerView.setAdapter(mAdapter);
                             } else {

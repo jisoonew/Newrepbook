@@ -53,7 +53,7 @@ public class listMainAdapter extends RecyclerView.Adapter<listMainAdapter.listVi
             public void onClick(View v){
                 Intent intent = new Intent(activity, PostActivity.class);
                 intent.putExtra("postInfo2", mDataset.get(listViewHolder.getAdapterPosition()));
-                activity.startActivity(intent);
+                activity.startActivity(intent);;
             }
         });
         return listViewHolder;

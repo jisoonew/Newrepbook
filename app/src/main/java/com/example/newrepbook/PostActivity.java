@@ -3,11 +3,14 @@ package com.example.newrepbook;
 import static com.android.volley.VolleyLog.TAG;
 import static com.example.newrepbook.Util.isStorageUrl;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -50,6 +53,7 @@ public class PostActivity extends BasicActivity {
 
         LinearLayout contentsLayout = (LinearLayout) findViewById(R.id.contentsLayout); // 레시피 내용
         LinearLayout thumbnailANDtitleLayout = (LinearLayout) findViewById(R.id.thumbnailANDtitleLayout); // 레시피 게시물 상단 음식 완성과 제목
+        Button shopping_btn = (Button) findViewById(R.id.shopping_btn);
 
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         ArrayList<String> contentsList = postInfo.getContents();
@@ -110,5 +114,13 @@ public class PostActivity extends BasicActivity {
                     }
             }
         }
+
+        shopping_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PostActivity.this, material_push.class);
+                startActivity(intent);
+            }
+        });
     }
 }
