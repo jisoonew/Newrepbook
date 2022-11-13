@@ -30,18 +30,18 @@
         <entry key="..\:/Newrepbook/app/src/main/res/layout/loading.xml" value="0.2" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/login.xml" value="0.22" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/main.xml" value="0.2995169082125604" />
-        <entry key="..\:/Newrepbook/app/src/main/res/layout/main_home.xml" value="0.25" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/main_home.xml" value="0.33" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/main_home2.xml" value="0.18" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/main_menu.xml" value="0.17552083333333332" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/material.xml" value="0.22" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/materials.xml" value="0.2515625" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/materials_design.xml" value="0.35052083333333334" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/order_details.xml" value="0.17407407407407408" />
-        <entry key="..\:/Newrepbook/app/src/main/res/layout/order_list.xml" value="0.17407407407407408" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/order_list.xml" value="0.33" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/postprint.xml" value="0.33" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/practicelistviewactivity.xml" value="0.22" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/practicemainactivity.xml" value="0.2212962962962963" />
-        <entry key="..\:/Newrepbook/app/src/main/res/layout/product.xml" value="0.17407407407407408" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/product.xml" value="0.33" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/purchasing_materials.xml" value="0.25196850393700787" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/purchasing_materials2.xml" value="0.259375" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/rbtn_hansik.xml" value="0.21" />
@@ -58,8 +58,10 @@
         <entry key="..\:/Newrepbook/app/src/main/res/layout/search7.xml" value="0.16203703703703703" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/search8.xml" value="0.16203703703703703" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/search9.xml" value="0.16203703703703703" />
-        <entry key="..\:/Newrepbook/app/src/main/res/layout/setting.xml" value="0.17407407407407408" />
-        <entry key="..\:/Newrepbook/app/src/main/res/layout/shopping_basket.xml" value="0.17407407407407408" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/setting.xml" value="0.33" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/shopping_basket.xml" value="0.33" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/shopping_page.xml" value="0.25" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/shopping_page2.xml" value="0.35052083333333334" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/situation.xml" value="0.5" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/type.xml" value="0.5" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/ui1.xml" value="0.16203703703703703" />

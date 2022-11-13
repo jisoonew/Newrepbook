@@ -9,7 +9,6 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
-
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
@@ -31,7 +30,7 @@
 <!--        </activity>-->
 
         <activity
-            android:name=".listMainActivity"
+            android:name=".shopping_page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,6 +51,7 @@
         <activity android:name=".PostActivity"></activity>
         <activity android:name=".material_push"></activity>
         <activity android:name=".itemFetch"></activity>
+        <activity android:name=".listMainActivity"></activity>
 
 
         <activity
@@ -73,7 +73,7 @@
         <!--            android:name="com.kakao.sdk.AppKey"-->
         <!--            android:value="59c346835058cbbc7bc91a283aa5466a"/>-->
 
-
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-3940256099942544~3347511713"/>
     </application>
 
 </manifest>
