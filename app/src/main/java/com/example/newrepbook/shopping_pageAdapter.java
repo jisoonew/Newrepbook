@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class shopping_pageAdapter extends RecyclerView.Adapter<shopping_pageAdapter.gridViewHolder> {
-    private ArrayList<shopping_pageInfo> mDataset;
+    private ArrayList<shopping_pageInfo> Dataset;
     private Activity activity;
 
     static class gridViewHolder extends RecyclerView.ViewHolder {
@@ -36,7 +36,7 @@ public class shopping_pageAdapter extends RecyclerView.Adapter<shopping_pageAdap
     }
 
     public shopping_pageAdapter(Activity activity, ArrayList<shopping_pageInfo> myDataset) {
-        mDataset = myDataset;
+        Dataset = myDataset;
         this.activity = activity;
     }
 
@@ -48,30 +48,30 @@ public class shopping_pageAdapter extends RecyclerView.Adapter<shopping_pageAdap
     @NonNull
     @Override
     public shopping_pageAdapter.gridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CardView cardView = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.shopping_page2, parent, false);
-        final shopping_pageAdapter.gridViewHolder gridViewHolder = new shopping_pageAdapter.gridViewHolder(cardView);
-//        cardView.setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View v){
-//                Intent intent = new Intent(activity, PostActivity.class);
-//                intent.putExtra("shopping_pageInfo", mDataset.get(gridViewHolder.getAdapterPosition()));
-//                activity.startActivity(intent);;
-//            }
-//        });
+        CardView cardView1 = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.shopping_page2, parent, false);
+        final shopping_pageAdapter.gridViewHolder gridViewHolder = new shopping_pageAdapter.gridViewHolder(cardView1);
+        cardView1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(activity, shopping_detailed_page.class);
+                intent.putExtra("shopping_page2", Dataset.get(gridViewHolder.getAdapterPosition()));
+                activity.startActivity(intent);
+            }
+        });
         return gridViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull final shopping_pageAdapter.gridViewHolder holder, int position) {
         Glide.with(holder.itemView)
-                .load(mDataset.get(position).getFood_image())
+                .load(Dataset.get(position).getFood_image())
                 .into(holder.food_image);
-        holder.food_name.setText(mDataset.get(position).getFood_name());
-        holder.food_price.setText(""+mDataset.get(position).getFood_price()); // int형은 textView에 출력이 안됨 따라서 앞에 ""를 붙여 String 값으로 인식되게 한다.
+        holder.food_name.setText(Dataset.get(position).getFood_name());
+        holder.food_price.setText(""+Dataset.get(position).getFood_price()); // int형은 textView에 출력이 안됨 따라서 앞에 ""를 붙여 String 값으로 인식되게 한다.
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.size() ;
+        return Dataset.size() ;
     }
 
 }

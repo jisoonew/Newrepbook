@@ -21,7 +21,6 @@ public class BasicActivity extends AppCompatActivity {
         super.setContentView(layoutResID);
     }
 
-
     public void setToolbarTitle(String title){
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){

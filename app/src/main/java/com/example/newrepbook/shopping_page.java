@@ -43,7 +43,11 @@ public class shopping_page extends AppCompatActivity {
                                             document.getData().get("food_name").toString(),
                                             document.getData().get("food_image").toString(),
                                             Integer.parseInt(String.valueOf (document.getData().get("food_price"))),
-                                            document.getData().get("food_amount").toString()));
+                                            document.getData().get("food_amount").toString(),
+                                            document.getData().get("food_area_of_production").toString(),
+                                            document.getData().get("food_feature").toString(),
+                                            document.getData().get("food_storage").toString()
+                                            ));
                                 }
                                 RecyclerView recyclerView = findViewById(R.id.recyclerView);
                                 recyclerView.setHasFixedSize(true);

@@ -52,6 +52,7 @@
         <activity android:name=".material_push"></activity>
         <activity android:name=".itemFetch"></activity>
         <activity android:name=".listMainActivity"></activity>
+        <activity android:name=".shopping_detailed_page"></activity>
 
 
         <activity
