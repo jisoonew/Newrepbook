@@ -30,7 +30,7 @@
 <!--        </activity>-->
 
         <activity
-            android:name=".shopping_page"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +46,7 @@
         <activity android:name=".GalleryActivity"></activity>
         <activity android:name=".practice.SampleMainActivity"></activity>
         <activity android:name=".AddPostActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".shopping_page"></activity>
         <activity android:name=".practice.postprint"></activity>
         <activity android:name=".PostActivity"></activity>
         <activity android:name=".material_push"></activity>

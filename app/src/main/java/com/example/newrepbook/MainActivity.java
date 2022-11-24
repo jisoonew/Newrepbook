@@ -6,6 +6,7 @@ import static android.view.View.VISIBLE;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
@@ -30,6 +31,7 @@ import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -39,9 +41,12 @@ public class MainActivity extends AppCompatActivity {
     boolean ishateOpen = false;
     Animation tranlateLeftAnim;
     Animation tranlateRightAnim;
-    LinearLayout menu, bookmark;
-    Button menubtn, bookmark_btn;
-    ImageButton cancel, bookmark_cancel;
+    LinearLayout menu, bookmark, shopping_basket;
+    Button menubtn,product_storage2_btn ;
+    RecyclerView shopping_basket_list;
+    ArrayList<shopping_basket_info> shopping_basket_arraylist;
+    ImageButton cancel, shopping_basket_cancel;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +65,16 @@ public class MainActivity extends AppCompatActivity {
         Button tab_Item6 = (Button) findViewById(R.id.tab_Item6);
         Button tab_Item7 = (Button) findViewById(R.id.tab_Item7);
 
-        findViewById(R.id.bookmark_btn).setOnClickListener(onClickListener);
-        findViewById(R.id.bookmark_cancel).setOnClickListener(onClickListener);
+        shopping_basket_list= findViewById(R.id.shopping_basket_list);
+        shopping_basket_list.setHasFixedSize(true);
+        shopping_basket_arraylist = new ArrayList<>();
+
+
+
+        findViewById(R.id.product_storage2_btn).setOnClickListener(onClickListener); // 장바구니
+        findViewById(R.id.bookmark_btn).setOnClickListener(onClickListener); // 내가 본 레시피
+        findViewById(R.id.bookmark_cancel).setOnClickListener(onClickListener); // 내가 본 레시피 취소
+        findViewById(R.id.shopping_basket_cancel).setOnClickListener(onClickListener); // 장바구니 취소
 
         pager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
         pager.setCurrentItem(0);
@@ -126,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
         menubtn = findViewById(R.id.menubtn);
 
-        menubtn.setOnClickListener(new View.OnClickListener() {
+        menubtn.setOnClickListener(new View.OnClickListener() { // 홈의 메뉴 버튼 클릭 시
             @Override
             public void onClick(View v) {
                 if (isMenuOpen) {
@@ -135,12 +148,12 @@ public class MainActivity extends AppCompatActivity {
                     menu.setVisibility(VISIBLE); // UI 생성
                     menu.startAnimation(tranlateLeftAnim); // 왼쪽 방향으로 등장
                 }
-                //scroll.setVisibility(ScrollView.INVISIBLE);
             }
         });
 
 
         cancel = findViewById(R.id.cancel);
+        shopping_basket_cancel = findViewById(R.id.shopping_basket_cancel);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,40 +165,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // 안좋아하는 음식 버튼 누른 후
-
-        LinearLayout hate_food = findViewById(R.id.hate_food);
-
-        hate_food.bringToFront();  // 맨앞으로 보이기
-
-
-//        tranlateLeftAnim.setAnimationListener(animListener3);
-//        tranlateRightAnim.setAnimationListener(animListener3);
-
-//        Button hate_btn = (Button) findViewById(R.id.hate_btn);
-
-//        hate_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                    hate_food.setVisibility(VISIBLE);
-//            }
-//        });
-
-
-// 메뉴 UI의 취소 버튼
-
-        ImageButton cancel2 = findViewById(R.id.cancel2);
-
-        cancel2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    hate_food.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
-            }
-        });
-
 
 //// 내가 본 레시피 버튼 누른 후
-//
+
         LinearLayout identify_food = findViewById(R.id.identify_food);
 
         identify_food.bringToFront();  // 맨앞으로 보이기
@@ -198,10 +180,10 @@ public class MainActivity extends AppCompatActivity {
                 identify_food.setVisibility(VISIBLE);
             }
         });
-//
-//
+
+
 //// 내가 본 레시피 UI의 취소 버튼
-//
+
         ImageButton identify_food_cancel = findViewById(R.id.identify_food_cancel);
 
         identify_food_cancel.setOnClickListener(new View.OnClickListener() {
@@ -212,26 +194,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.bookmark: //즐겨찾기를 누르면
+                case R.id.bookmark: //즐겨찾기 클릭
                     bookmark_click();
                     break;
-//                case R.id.logout_btn: //로그아웃을 누르면
+//                case R.id.logout_btn: //로그아웃 누르면
 //                    FirebaseAuth.getInstance().signOut();
 //                    startMainActivity();
 //                    break;
-                case R.id.bookmark_cancel: //즐겨찾기 UI 취소 누르면
+                case R.id.bookmark_cancel: //즐겨찾기 취소
                     bookmark_cancel();
                     break;
-//                case R.id.floatingActionButton: //게시물 만들기 버튼
-//                    startAddPostActivity();
-//                    break;
+                case R.id.product_storage2_btn: // 장바구니 클릭
+                    shopping_basket_click();
+                    break;
+                case R.id.shopping_basket_cancel: // 장바구니 취소
+                    shopping_basket_cancel();
+                    break;
             }
         }
     };
@@ -243,10 +227,25 @@ public class MainActivity extends AppCompatActivity {
         bookmark.setVisibility(VISIBLE);
     }
 
-    // 즐겨찾기 UI 취소 버튼
+    // 즐겨찾기 취소 버튼
     private void bookmark_cancel() {
         bookmark.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
     }
+
+    // 장바구니 버튼 누른 후
+    private void shopping_basket_click() {
+        shopping_basket = findViewById(R.id.shopping_basket);
+        shopping_basket.bringToFront();  // 맨앞으로 보이기
+        shopping_basket.setVisibility(VISIBLE);
+    }
+
+    // 장바구니 취소 버튼
+    private void shopping_basket_cancel() {
+        shopping_basket.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
+    }
+
+
+
 
     // 다시 로그인 페이지로 돌아가기
     private void startMainActivity() {
@@ -278,16 +277,6 @@ public class MainActivity extends AppCompatActivity {
             else{
                 isMenuOpen = true;
             }
-
-//            if (ishateOpen){
-//                hate_food.setVisibility(INVISIBLE);
-//
-//                ishateOpen = false;
-//            }
-//            else{
-//                ishateOpen = true;
-//            }
-
         }
         @Override
         public void onAnimationRepeat(Animation animation) {

@@ -59,6 +59,7 @@
         tools:visibility="visible"></LinearLayout>
 
     <Button
+        android:id="@+id/buy_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"

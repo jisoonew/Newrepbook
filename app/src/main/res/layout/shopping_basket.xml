@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_gravity="right"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/shopping_basket"
@@ -24,9 +25,13 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="730dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
                     <ImageButton
                         android:id="@+id/shopping_basket_cancel"
                         android:layout_width="40dp"
@@ -44,92 +49,28 @@
                         android:text="장바구니"
                         android:textSize="27dp" />
 
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="27dp"
-                        android:layout_marginLeft="-80dp"
-                        android:layout_marginTop="85dp"
-                        android:text="25,000원"
-                        android:textSize="15dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:layout_marginLeft="-400dp"
+                        android:background="#000000" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="480dp">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/shopping_basket_list"/>
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="3px"
-                    android:layout_marginLeft="-400dp"
-                    android:layout_marginTop="50dp"
-                    android:background="#000000" />
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="-190dp"
-                    android:layout_marginTop="50dp"
-                    android:text="냄비"
-                    android:textSize="20dp" />
-
-                <CheckBox
-                    android:layout_width="36dp"
-                    android:layout_height="37dp"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="40dp"
-                    android:checked="true" />
-
-                <ImageView
-                    android:layout_width="160dp"
-                    android:layout_height="120dp"
-                    android:layout_marginLeft="-368dp"
-                    android:layout_marginTop="60dp"
-                    android:scaleType="fitXY"/>
-<!--                    android:src="@drawable/pot" />-->
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="3px"
-                    android:layout_marginLeft="-400dp"
-                    android:layout_marginTop="185dp"
-                    android:background="#000000" />
-
-                <!--                /*2ww*/-->
-                <TextView
-                    android:layout_width="229dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="-190dp"
-                    android:layout_marginTop="188dp"
-                    android:text="고기"
-                    android:textSize="20dp" />
-
-                <CheckBox
-                    android:layout_width="36dp"
-                    android:layout_height="37dp"
-                    android:layout_marginLeft="-70dp"
-                    android:layout_marginTop="175dp"
-                    android:checked="true" />
-
-                <ImageView
-                    android:layout_width="165dp"
-                    android:layout_height="130dp"
-                    android:layout_marginLeft="-368dp"
-                    android:layout_marginTop="195dp"
-                    android:scaleType="fitXY"/>
-<!--                    android:src="@drawable/pot" -->
-                    />
-
-                <TextView
-                    android:layout_width="173dp"
-                    android:layout_height="27dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="220dp"
-                    android:text="32,000원"
-                    android:textSize="15dp" />
 
                 <!--가격-->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="3px"
-                    android:layout_marginLeft="-400dp"
-                    android:layout_marginTop="333dp"
-                    android:background="#000000" />
 
                 <TextView
                     android:layout_width="120dp"
@@ -155,12 +96,6 @@
                     android:text="총 결제 예상금액 :"
                     android:textSize="20dp"/>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="10px"
-                    android:layout_marginLeft="-400dp"
-                    android:layout_marginTop="500dp"
-                    android:background="#000000" />
 
                 <!--                합계-->
                 <View
@@ -186,7 +121,7 @@
                     android:text="합계 : 1111"
                     android:textColor="#000" />
 
-                <!--                주문버튼-->
+                <!-- 주문버튼-->
                 <Button
                     android:layout_width="160dp"
                     android:layout_height="60dp"

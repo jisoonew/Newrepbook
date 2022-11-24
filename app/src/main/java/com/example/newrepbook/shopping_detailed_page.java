@@ -1,9 +1,9 @@
 package com.example.newrepbook;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,27 +11,24 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class shopping_detailed_page extends BasicActivity {
-        private int count = 0;
+        private int count = 0; // 수량
+        private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        private DatabaseReference databaseReference = firebaseDatabase.getReference();
+        private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        private int buy_num=1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +44,8 @@ public class shopping_detailed_page extends BasicActivity {
 
         Button subtraction_button = (Button) findViewById(R.id.subtraction_button);
         Button addition_button = (Button) findViewById(R.id.addition_button);
+        Button buy_button = (Button) findViewById(R.id.buy_button);
+
 
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         String food_area_of_production = Shopping_pageInfo.getFood_area_of_production();  // 생산지
@@ -54,6 +53,7 @@ public class shopping_detailed_page extends BasicActivity {
         String food_image = Shopping_pageInfo.getFood_image();  // 상품 이미지
         String food_amount = Shopping_pageInfo.getFood_amount();  // 수량
         String food_name = Shopping_pageInfo.getFood_name();  // 상품 이름
+        String food_feature = Shopping_pageInfo.getFood_feature(); // 상품 특징
 
         addition_button.setOnClickListener(new View.OnClickListener() { // 덧셈 버튼 기능
             @Override
@@ -114,12 +114,45 @@ public class shopping_detailed_page extends BasicActivity {
             food_area_of_production_text.setText(food_area_of_production);
             shopping_detailed_pageLayout2.addView(food_area_of_production_text);
 
-            TextView food_storage_text = new TextView(this); // 상품 생산지
+            TextView food_storage_text = new TextView(this); // 상품 보관법
             food_storage_text.setTextSize(size2);
             food_storage_text.setLayoutParams(layoutParams);
             food_storage_text.setGravity(Gravity.CENTER); // 제목 가운데 정렬
             food_storage_text.setText(food_storage);
             shopping_detailed_pageLayout2.addView(food_storage_text);
+
+            TextView food_feature_text = new TextView(this); // 상품 특징
+            food_feature_text.setTextSize(size2);
+            food_feature_text.setLayoutParams(layoutParams);
+            food_feature_text.setGravity(Gravity.CENTER); // 제목 가운데 정렬
+            food_feature_text.setText(food_feature);
+            shopping_detailed_pageLayout2.addView(food_feature_text);
+
+
+            buy_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                        databaseReference.child("Users").child(user.getUid()).child("buy").push().child("음식_이름").setValue(food_name_text.getText().toString());
+//                        databaseReference.child("Users").child(user.getUid()).child("buy").push().child("음식_수량").setValue(food_amount_text.getText().toString());
+
+                    //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
+                    HashMap<Object, String> hashMap = new HashMap<>();
+
+                    hashMap.put("shopping_name", food_name_text.getText().toString());
+                    hashMap.put("reckoning_number", reckoning_number.getText().toString());
+                    hashMap.put("shopping_amount", food_amount_text.getText().toString());
+
+                    databaseReference.child("Users").child(user.getUid()).child("buy").push().setValue(hashMap);
+
+                        Toast.makeText(getApplicationContext(), "장바구니 저장!", Toast.LENGTH_SHORT).show();
+                    }
+            });
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("VALUE",buy_num);
     }
 }
