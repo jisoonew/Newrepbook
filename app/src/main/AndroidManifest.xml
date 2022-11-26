@@ -30,7 +30,7 @@
 <!--        </activity>-->
 
         <activity
-            android:name=".MainActivity"
+            android:name=".loginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
 
         <activity android:name=".situation"></activity>
         <activity android:name=".joinActivity"></activity>
-        <activity android:name=".loginActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".PasswordResetActivity"></activity>
         <activity android:name=".CameraActivity"></activity>
         <activity android:name=".GalleryActivity"></activity>

@@ -43,9 +43,10 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+//    implementation 'com.firebaseui:firebase-ui-database:6.4.0'
 
 
-        implementation platform('com.google.firebase:firebase-bom:31.0.0')
+    implementation platform('com.google.firebase:firebase-bom:31.0.0')
         implementation 'com.google.firebase:firebase-analytics'
 //        implementation 'com.google.firebase:firebase-auth'
         implementation 'com.google.firebase:firebase-firestore'

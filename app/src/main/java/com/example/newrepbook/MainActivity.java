@@ -3,35 +3,28 @@ package com.example.newrepbook;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
-import androidx.appcompat.app.ActionBar;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Layout;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
-import com.google.android.material.tabs.TabItem;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -39,14 +32,17 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     boolean isMenuOpen = false;
     boolean ishateOpen = false;
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private shopping_basket_Adapter adapter;
     Animation tranlateLeftAnim;
     Animation tranlateRightAnim;
     LinearLayout menu, bookmark, shopping_basket;
-    Button menubtn,product_storage2_btn ;
+    Button menubtn;
     RecyclerView shopping_basket_list;
-    ArrayList<shopping_basket_info> shopping_basket_arraylist;
+    ArrayList<Shopping_basket_info> shopping_basket_arraylist;
     ImageButton cancel, shopping_basket_cancel;
     FirebaseDatabase database;
+    DatabaseReference databaseReference, databaseReference1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +61,6 @@ public class MainActivity extends AppCompatActivity {
         Button tab_Item6 = (Button) findViewById(R.id.tab_Item6);
         Button tab_Item7 = (Button) findViewById(R.id.tab_Item7);
 
-        shopping_basket_list= findViewById(R.id.shopping_basket_list);
-        shopping_basket_list.setHasFixedSize(true);
-        shopping_basket_arraylist = new ArrayList<>();
 
 
 
@@ -234,9 +227,38 @@ public class MainActivity extends AppCompatActivity {
 
     // 장바구니 버튼 누른 후
     private void shopping_basket_click() {
+
+        shopping_basket_list= findViewById(R.id.shopping_basket_recycler);
+        shopping_basket_list.setHasFixedSize(true);
+        shopping_basket_list.setLayoutManager(new LinearLayoutManager(this));
+        shopping_basket_arraylist = new ArrayList<>();
+
+
+        databaseReference1 = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid()).child("buy");
+//        databaseReference.child("Users").child(user.getUid()).child("buy").push().setValue(hashMap);
+
+        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                shopping_basket_arraylist.clear(); // 기존 배열리스트가 존재하지 않게 초기화
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { //반복문으로 데이터 리스트를 추출
+                    Shopping_basket_info shopping_ = snapshot.getValue(Shopping_basket_info.class); // User 객체에 데이터 담는다
+                    shopping_basket_arraylist.add(shopping_); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                }
+                adapter = new shopping_basket_Adapter(MainActivity.this, shopping_basket_arraylist);
+                shopping_basket_list.setAdapter(adapter);
+                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         shopping_basket = findViewById(R.id.shopping_basket);
         shopping_basket.bringToFront();  // 맨앞으로 보이기
         shopping_basket.setVisibility(VISIBLE);
+
     }
 
     // 장바구니 취소 버튼
@@ -283,5 +305,4 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
 }

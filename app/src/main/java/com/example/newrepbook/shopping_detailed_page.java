@@ -24,11 +24,11 @@ import org.w3c.dom.Text;
 import java.util.HashMap;
 
 public class shopping_detailed_page extends BasicActivity {
-        private int count = 0; // 수량
-        private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        private DatabaseReference databaseReference = firebaseDatabase.getReference();
-        private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        private int buy_num=1;
+    private int count = 0; // 수량
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = firebaseDatabase.getReference();
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private int buy_num=1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,7 @@ public class shopping_detailed_page extends BasicActivity {
         String food_amount = Shopping_pageInfo.getFood_amount();  // 수량
         String food_name = Shopping_pageInfo.getFood_name();  // 상품 이름
         String food_feature = Shopping_pageInfo.getFood_feature(); // 상품 특징
+        int food_price = (Shopping_pageInfo.getFood_price()); // 상품 가격
 
         addition_button.setOnClickListener(new View.OnClickListener() { // 덧셈 버튼 기능
             @Override
@@ -99,6 +100,13 @@ public class shopping_detailed_page extends BasicActivity {
             food_name_text.setText(food_name);
             shopping_detailed_pageLayout2.addView(food_name_text);
 
+            TextView food_price_text = new TextView(this); // 상품 이름
+            food_price_text.setTextSize(size1);
+            food_price_text.setLayoutParams(layoutParams);
+            food_price_text.setGravity(Gravity.CENTER); // 제목 가운데 정렬
+            food_price_text.setText(food_price+"원");
+            shopping_detailed_pageLayout2.addView(food_price_text);
+
             TextView food_amount_text = new TextView(this); // 상품 총량
             int size2 = 20;
             food_amount_text.setTextSize(size2);
@@ -136,16 +144,22 @@ public class shopping_detailed_page extends BasicActivity {
 //                        databaseReference.child("Users").child(user.getUid()).child("buy").push().child("음식_수량").setValue(food_amount_text.getText().toString());
 
                     //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
-                    HashMap<Object, String> hashMap = new HashMap<>();
+                    HashMap<String, Object> hashMap = new HashMap<>();
 
-                    hashMap.put("shopping_name", food_name_text.getText().toString());
-                    hashMap.put("reckoning_number", reckoning_number.getText().toString());
-                    hashMap.put("shopping_amount", food_amount_text.getText().toString());
+                    if (food_name_text.getText().toString() == "0"){
+                        Toast.makeText(getApplicationContext(), "수량을 선택해주세요!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        hashMap.put("shopping_name", food_name_text.getText().toString());
+                        hashMap.put("reckoning_number", reckoning_number.getText().toString());
+                        hashMap.put("shopping_amount", food_amount_text.getText().toString());
+                        hashMap.put("shopping_image", food_image);
+                        hashMap.put("shopping_price", Integer.valueOf(food_price));
 
-                    databaseReference.child("Users").child(user.getUid()).child("buy").push().setValue(hashMap);
+                        databaseReference.child("Users").child(user.getUid()).child("buy").push().setValue(hashMap);
 
                         Toast.makeText(getApplicationContext(), "장바구니 저장!", Toast.LENGTH_SHORT).show();
                     }
+                }
             });
         }
     }
