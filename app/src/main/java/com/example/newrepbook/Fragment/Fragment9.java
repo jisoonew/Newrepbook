@@ -5,15 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.newrepbook.R;
 
-public class Fragment3 extends Fragment {
-    public Fragment3()
+public class Fragment9 extends Fragment {
+
+    public Fragment9()
     {
         // required
     }
@@ -31,6 +31,7 @@ public class Fragment3 extends Fragment {
         LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.shopping_page,
 
                 container, false);
+
         return layout;
     }
 }

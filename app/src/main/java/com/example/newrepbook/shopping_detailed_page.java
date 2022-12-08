@@ -154,7 +154,6 @@ public class shopping_detailed_page extends BasicActivity {
                         hashMap.put("shopping_amount", food_amount_text.getText().toString());
                         hashMap.put("shopping_image", food_image);
                         hashMap.put("shopping_price", Integer.valueOf(food_price));
-
                         databaseReference.child("Users").child(user.getUid()).child("buy").push().setValue(hashMap);
 
                         Toast.makeText(getApplicationContext(), "장바구니 저장!", Toast.LENGTH_SHORT).show();

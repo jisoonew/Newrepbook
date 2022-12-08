@@ -8,17 +8,19 @@ public class Shopping_basket_info implements Serializable {
     private String shopping_name;
     private String shopping_image;
     private int shopping_price;
+    private String shopping_uid;
 
     public Shopping_basket_info() {
 
     }
 
-    public Shopping_basket_info(String reckoning_number, String shopping_amount, String shopping_name, String shopping_image, int shopping_price) {
+    public Shopping_basket_info(String reckoning_number, String shopping_amount, String shopping_name, String shopping_image, int shopping_price, String shopping_uid) {
         this.reckoning_number = reckoning_number;
         this.shopping_amount = shopping_amount;
         this.shopping_name = shopping_name;
         this.shopping_image = shopping_image;
         this.shopping_price = shopping_price;
+        this.shopping_uid = shopping_uid;
     }
 
     public String getReckoning_number() {
@@ -59,5 +61,13 @@ public class Shopping_basket_info implements Serializable {
 
     public void setShopping_price(int shopping_price) {
         this.shopping_price = shopping_price;
+    }
+
+    public String getShopping_uid() {
+        return shopping_uid;
+    }
+
+    public void setShopping_uid(String shopping_uid) {
+        this.shopping_uid = shopping_uid;
     }
 }

@@ -66,6 +66,8 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-auth:19.0.0' //구글
 
+    implementation 'com.firebaseui:firebase-ui-database:8.0.2' //빌드 그리드 추가
+
     implementation"com.navercorp.nid:oauth-jdk8:5.1.0" // jdk 8
     implementation files('libs/oauth-5.1.0')
     implementation 'androidx.room:room-runtime:2.3.0'

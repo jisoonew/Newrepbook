@@ -32,9 +32,5 @@
 
         </LinearLayout>
 
-        <CheckBox
-        android:layout_width="36dp"
-        android:layout_height="37dp"
-        android:checked="true" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

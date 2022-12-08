@@ -11,6 +11,7 @@
         <entry key="..\:/Newrepbook/app/src/main/res/layout/aaa.xml" value="0.1" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/activity_camera.xml" value="0.17962962962962964" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/activity_listview.xml" value="0.25" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/activity_main.xml" value="0.2064814814814815" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/activity_post.xml" value="0.21979166666666666" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/addpost.xml" value="0.2" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/bookmark.xml" value="0.17407407407407408" />
@@ -30,7 +31,7 @@
         <entry key="..\:/Newrepbook/app/src/main/res/layout/loading.xml" value="0.2" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/login.xml" value="0.22" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/main.xml" value="0.2995169082125604" />
-        <entry key="..\:/Newrepbook/app/src/main/res/layout/main_home.xml" value="0.33" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/main_home.xml" value="0.18" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/main_home2.xml" value="0.18" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/main_menu.xml" value="0.17552083333333332" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/material.xml" value="0.22" />
@@ -65,6 +66,7 @@
         <entry key="..\:/Newrepbook/app/src/main/res/layout/shopping_detailed_page.xml" value="0.2171875" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/shopping_page.xml" value="0.25" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/shopping_page2.xml" value="0.35052083333333334" />
+        <entry key="..\:/Newrepbook/app/src/main/res/layout/singlerow.xml" value="0.3463541666666667" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/situation.xml" value="0.5" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/type.xml" value="0.5" />
         <entry key="..\:/Newrepbook/app/src/main/res/layout/ui1.xml" value="0.16203703703703703" />
