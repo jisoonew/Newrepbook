@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -22,13 +23,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,10 +40,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -51,12 +59,16 @@ public class MainActivity extends AppCompatActivity {
     Animation tranlateLeftAnim;
     Animation tranlateRightAnim;
     LinearLayout menu, bookmark, shopping_basket;
+    ImageView search_btn;
     Button menubtn, delete_button;
     RecyclerView shopping_basket_list;
     ArrayList<Shopping_basket_info> shopping_basket_arraylist, shopping_basket_arraylist2;
     ImageButton cancel, shopping_basket_cancel;
     FirebaseDatabase database;
     DatabaseReference databaseReference, databaseReference1;
+    private static final String TAG = "listMainActivity";
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseUser firebaseUser;
     final int sum = 0;
 
     @Override
@@ -65,19 +77,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_home);
         mAuth = FirebaseAuth.getInstance();
 
-        ViewPager pager = (ViewPager) findViewById(R.id.viewpager);
-        ViewPager pager2 = (ViewPager) findViewById(R.id.viewpager2);
+//        ViewPager pager = (ViewPager) findViewById(R.id.viewpager);
+//        ViewPager pager2 = (ViewPager) findViewById(R.id.viewpager2);
 
         Button btn_first = (Button) findViewById(R.id.btn_first);     // 홈 버튼
         Button btn_second = (Button) findViewById(R.id.btn_second);   // 레시피
-        Button btn_third = (Button) findViewById(R.id.btn_third);     // 랭킹
+//        Button btn_third = (Button) findViewById(R.id.btn_third);     // 랭킹
         Button shopping_button = (Button) findViewById(R.id.shopping_button); // 쇼핑
 
         Button tab_Item5 = (Button) findViewById(R.id.tab_Item5);
         Button tab_Item6 = (Button) findViewById(R.id.tab_Item6);
         Button tab_Item7 = (Button) findViewById(R.id.tab_Item7);
-        Button delete_button = (Button) findViewById(R.id.delete_button);
 
+        search_btn = findViewById(R.id.search_img); // 검색 이미지
 
         findViewById(R.id.product_storage2_btn).setOnClickListener(onClickListener); // 장바구니
         findViewById(R.id.bookmark_btn).setOnClickListener(onClickListener); // 내가 본 레시피
@@ -85,42 +97,42 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.shopping_basket_cancel).setOnClickListener(onClickListener); // 장바구니 취소
         findViewById(R.id.shopping_button).setOnClickListener(onClickListener);
 
-        pager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
-        pager.setCurrentItem(0);
-
-        View.OnClickListener movePageListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int tag = (int) view.getTag();
-                pager.setCurrentItem(tag);
-            }
-        };
-
-
-        btn_first.setOnClickListener(movePageListener);
-        btn_first.setTag(0);
-        btn_second.setOnClickListener(movePageListener); // 홈의 레시피
-        btn_second.setTag(1);
+//        pager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+//        pager.setCurrentItem(0);
+//
+//        View.OnClickListener movePageListener = new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                int tag = (int) view.getTag();
+//                pager.setCurrentItem(tag);
+//            }
+//        };
 
 
-        // 동그라미 보이기
-        pager2.setAdapter(new pagerAdapter2(getSupportFragmentManager()));
-        pager2.setCurrentItem(0);
+//        btn_first.setOnClickListener(movePageListener);
+//        btn_first.setTag(0);
+//        btn_second.setOnClickListener(movePageListener); // 홈의 레시피
+//        btn_second.setTag(1);
+//
+//
+//        // 동그라미 보이기
+//        pager2.setAdapter(new pagerAdapter2(getSupportFragmentManager()));
+//        pager2.setCurrentItem(0);
+//
+//        View.OnClickListener movePageListener2 = new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                int tag = (int) view.getTag();
+//                pager2.setCurrentItem(tag);
+//            }
+//        };
 
-        View.OnClickListener movePageListener2 = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int tag = (int) view.getTag();
-                pager2.setCurrentItem(tag);
-            }
-        };
-
-        tab_Item5.setOnClickListener(movePageListener2);
-        tab_Item5.setTag(0);
-        tab_Item6.setOnClickListener(movePageListener2);
-        tab_Item6.setTag(1);
-        tab_Item7.setOnClickListener(movePageListener2);
-        tab_Item7.setTag(2);
+//        tab_Item5.setOnClickListener(movePageListener2);
+//        tab_Item5.setTag(0);
+//        tab_Item6.setOnClickListener(movePageListener2);
+//        tab_Item6.setTag(1);
+//        tab_Item7.setOnClickListener(movePageListener2);
+//        tab_Item7.setTag(2);
 
 
         //메뉴 버튼을 누른 후
@@ -144,10 +156,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isMenuOpen) {
                     menu.startAnimation(tranlateRightAnim); // UI 오른쪽 방향으로 감추기
+                    shopping_button.setVisibility(VISIBLE);
                 } else {
                     menu.setVisibility(VISIBLE); // UI 생성
                     menu.startAnimation(tranlateLeftAnim); // 왼쪽 방향으로 등장
+                    shopping_button.setVisibility(INVISIBLE);
                 }
+            }
+        });
+
+
+        search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ReMainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -163,37 +186,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-//// 내가 본 레시피 버튼 누른 후
-
-        LinearLayout identify_food = findViewById(R.id.identify_food);
-
-        identify_food.bringToFront();  // 맨앞으로 보이기
-
-        Button identift_food_btn = (Button) findViewById(R.id.identify_food_btn);
-
-        identift_food_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                identify_food.setVisibility(VISIBLE);
-            }
-        });
-
-
-//// 내가 본 레시피 UI의 취소 버튼
-
-        ImageButton identify_food_cancel = findViewById(R.id.identify_food_cancel);
-
-        identify_food_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                identify_food.setVisibility(INVISIBLE); // UI 오른쪽 방향으로 감추기
-
-            }
-        });
-
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -235,6 +227,8 @@ public class MainActivity extends AppCompatActivity {
         bookmark.bringToFront();  // 맨앞으로 보이기
         bookmark.setVisibility(VISIBLE);
     }
+
+
 
 
     // 즐겨찾기 취소 버튼
@@ -291,8 +285,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     // 다시 로그인 페이지로 돌아가기
     private void startMainActivity() {
         Intent intent = new Intent(this, loginActivity.class);
@@ -329,4 +321,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+
+
 }

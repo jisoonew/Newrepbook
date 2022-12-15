@@ -146,7 +146,7 @@ public class shopping_detailed_page extends BasicActivity {
                     //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
                     HashMap<String, Object> hashMap = new HashMap<>();
 
-                    if (food_name_text.getText().toString() == "0"){
+                    if (reckoning_number.getText().toString() == "0"){
                         Toast.makeText(getApplicationContext(), "수량을 선택해주세요!", Toast.LENGTH_SHORT).show();
                     } else {
                         hashMap.put("shopping_name", food_name_text.getText().toString());
@@ -154,7 +154,9 @@ public class shopping_detailed_page extends BasicActivity {
                         hashMap.put("shopping_amount", food_amount_text.getText().toString());
                         hashMap.put("shopping_image", food_image);
                         hashMap.put("shopping_price", Integer.valueOf(food_price));
-                        databaseReference.child("Users").child(user.getUid()).child("buy").push().setValue(hashMap);
+                        String key = databaseReference.child(user.getUid()).child("buy").push().getKey();
+                        hashMap.put("shopping_uid", key);
+                        databaseReference.child("Users").child(user.getUid()).child("buy").child(key).setValue(hashMap);
 
                         Toast.makeText(getApplicationContext(), "장바구니 저장!", Toast.LENGTH_SHORT).show();
                     }

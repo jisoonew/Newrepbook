@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.service.autofill.Dataset;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -26,6 +27,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -47,7 +49,9 @@ public class shopping_basket_Adapter extends RecyclerView.Adapter<shopping_baske
         ImageView shopping_basket_image;
         TextView shopping_basket_name;
         TextView shopping_basket_price;
-        Button delete_button;
+        TextView delivery_charge_fee;
+        TextView shopping_fix_price;
+
             private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
             private DatabaseReference databaseReference = firebaseDatabase.getReference();
             private DatabaseReference databaseReference1;
@@ -60,7 +64,8 @@ public class shopping_basket_Adapter extends RecyclerView.Adapter<shopping_baske
             shopping_basket_image.setScaleType(ImageView.ScaleType.FIT_XY); // 이미지가 꽉차게 보임
             this.shopping_basket_name  = itemView.findViewById(R.id.shopping_basket_name);
             this.shopping_basket_price = itemView.findViewById(R.id.shopping_basket_price);
-            this.delete_button = itemView.findViewById(R.id.delete_button);
+            this.delivery_charge_fee = itemView.findViewById(R.id.delivery_charge_fee);
+            this.shopping_fix_price = (TextView) itemView.findViewById(R.id.shopping_fix_price);
             }
     }
 
@@ -102,6 +107,7 @@ public class shopping_basket_Adapter extends RecyclerView.Adapter<shopping_baske
                 .into(holder.shopping_basket_image);
         holder.shopping_basket_name.setText(shopping_basket_info.getShopping_name());
         holder.shopping_basket_price.setText(""+dataset.get(position).getShopping_price()); // int형은 textView에 출력이 안됨 따라서 앞에 ""를 붙여 String 값으로 인식되게 한다.
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +117,7 @@ public class shopping_basket_Adapter extends RecyclerView.Adapter<shopping_baske
                         System.out.println("삭제 테스트");
                         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
                         databaseReference.child(user.getUid()).child("buy").child(dataset.get(position).getShopping_uid()).setValue(null);
+
                         dataset.remove(position);
                         notifyItemRemoved(position);
                         notifyItemRangeChanged(position, dataset.size());

@@ -34,47 +34,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
-<!--                <Button-->
-<!--                    android:id="@+id/logout_btn"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="로그아웃" />-->
+                <!--                <Button-->
+                <!--                    android:id="@+id/logout_btn"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="로그아웃" />-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="340dp"
-                    android:layout_height="match_parent"
-                    tools:context=".MainActivity">
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:layout_width="340dp"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    tools:context=".MainActivity">-->
 
-                    <androidx.appcompat.widget.Toolbar
-                        android:layout_width="100dp"
-                        android:layout_height="?attr/actionBarSize"
-                        app:contentInsetStart="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                <!--                    <androidx.appcompat.widget.Toolbar-->
+                <!--                        android:layout_width="100dp"-->
+                <!--                        android:layout_height="?attr/actionBarSize"-->
+                <!--                        app:contentInsetStart="0dp"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent">-->
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp">
+                <!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="match_parent"-->
+                <!--                            android:paddingStart="16dp"-->
+                <!--                            android:paddingEnd="16dp">-->
 
-                            <androidx.appcompat.widget.SearchView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" >
+                <!--                            <androidx.appcompat.widget.SearchView-->
+                <!--                                android:layout_width="wrap_content"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                                app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                                app:layout_constraintTop_toTopOf="parent" >-->
 
-                            </androidx.appcompat.widget.SearchView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.appcompat.widget.Toolbar>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--                            </androidx.appcompat.widget.SearchView>-->
+                <!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+                <!--                    </androidx.appcompat.widget.Toolbar>-->
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <ImageView
+                    android:id="@+id/search_img"
+                    android:layout_width="100dp"
+                    android:layout_height="58dp"
+                    android:src="@drawable/ic_baseline_search_24" />
 
                 <Button
                     android:id="@+id/menubtn"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
-                    android:layout_marginStart="0dp"
+                    android:layout_marginStart="250dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/menu_remove"></Button>
@@ -121,15 +127,6 @@
                         android:background="#00ff0000"
                         android:layout_weight="1"
                         android:text="쇼핑" />
-
-                    <Button
-                        android:id="@+id/btn_third"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#00ff0000"
-                        android:text="랭킹"
-                        android:textColor="#000000" />
             </LinearLayout>
 
                 <View
@@ -192,21 +189,32 @@
                     android:background="#000000" />
 
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/viewpager2"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_below="@+id/top">
-                </androidx.viewpager.widget.ViewPager>
+<!--                <androidx.viewpager.widget.ViewPager-->
+<!--                    android:id="@+id/viewpager2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:layout_below="@+id/top">-->
+<!--                </androidx.viewpager.widget.ViewPager>-->
 
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="730dp"
-                    android:layout_below="@+id/top"></androidx.viewpager.widget.ViewPager>
+<!--                <androidx.viewpager.widget.ViewPager-->
+<!--                    android:id="@+id/viewpager"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="730dp"-->
+<!--                    android:layout_below="@+id/top"></androidx.viewpager.widget.ViewPager>-->
 
-            </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                            </androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+                </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
@@ -563,9 +571,7 @@
             android:layout_marginTop="25dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <!--      세번째 음식    -->
 
@@ -584,7 +590,10 @@
                 android:layout_width="150dp"
                 android:layout_height="110dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/food2"/>/*centerCrop 170 120 사이즈에 이미지 꽉 채우기*/
+                android:src="@drawable/food2"/>
+
+<!--            centerCrop 170 120 사이즈에 이미지 꽉 채우기-->
+
             <Button
                 android:layout_marginLeft="-9dp"
                 android:layout_width="250dp"
@@ -715,19 +724,6 @@
                         android:gravity="right"
                         android:text="레시피"/>
 
-
-                    <Button
-                        android:id="@+id/identify_food_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="-368dp"
-                        android:layout_marginTop="160dp"
-                        android:gravity="right"
-                        android:text="내가 본 레시피"
-                        android:textColor="#000000"
-                        android:background="@drawable/line"
-                        android:textSize="25dp" />
-
                     <Button
                         android:id="@+id/bookmark_btn"
                         android:layout_width="match_parent"
@@ -742,24 +738,11 @@
 
 
                     <Button
-                        android:id="@+id/product_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="-368dp"
-                        android:layout_marginTop="258dp"
-                        android:gravity="right"
-                        android:text="최근 본 상품"
-                        android:textColor="#000000"
-                        android:background="@drawable/line"
-                        android:textSize="25dp" />
-
-
-                    <Button
                         android:id="@+id/product_storage_btn"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginLeft="-368dp"
-                        android:layout_marginTop="306dp"
+                        android:layout_marginTop="260dp"
                         android:gravity="right"
                         android:text="찜 목록"
                         android:textColor="#000000"
@@ -771,7 +754,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginLeft="-368dp"
-                        android:layout_marginTop="355dp"
+                        android:layout_marginTop="310dp"
                         android:gravity="right"
                         android:text="장바구니"
                         android:textColor="#000000"
@@ -783,21 +766,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginLeft="-368dp"
-                        android:layout_marginTop="403dp"
+                        android:layout_marginTop="360dp"
                         android:gravity="right"
                         android:text="주문내역"
-                        android:textColor="#000000"
-                        android:background="@drawable/line"
-                        android:textSize="25dp" />
-
-                    <Button
-                        android:id="@+id/evaluation_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="-368dp"
-                        android:layout_marginTop="452dp"
-                        android:gravity="right"
-                        android:text="내가 쓴 후기"
                         android:textColor="#000000"
                         android:background="@drawable/line"
                         android:textSize="25dp" />
